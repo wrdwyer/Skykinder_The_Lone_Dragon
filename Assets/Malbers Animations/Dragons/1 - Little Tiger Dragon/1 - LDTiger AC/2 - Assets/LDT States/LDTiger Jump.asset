@@ -19,6 +19,7 @@ MonoBehaviour:
     ConstantValue: 
     Variable: {fileID: 0}
   Priority: 6
+  ResetInputOnFailed: 1
   General:
     modify: 2303
     RootMotion: 1
@@ -65,11 +66,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dc5ca673dc60d346a62529c8a9bd8ff, type: 2}
   - {fileID: 11400000, guid: 1286867ad3c4cdd4baacac3373aff92c, type: 2}
   QueueFrom: []
+  ResetFrom: []
   SleepFromStance: []
   stances: []
   TryLoop:
     UseConstant: 1
     ConstantValue: 1
+    Variable: {fileID: 0}
+  Duration:
+    UseConstant: 1
+    ConstantValue: 0
     Variable: {fileID: 0}
   EnterTag:
     UseConstant: 1
@@ -79,7 +85,6 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 
     Variable: {fileID: 0}
-  ExitFrame: 1
   ExitOnMain: 1
   EnterCooldown:
     UseConstant: 1
@@ -90,6 +95,7 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 0}
   CanStrafe: 1
+  StrafeAnimations: 1
   MovementStrafe: 1
   IdleStrafe: 1
   debug: 1
@@ -118,7 +124,9 @@ MonoBehaviour:
     JumpLandDistance: 1.245
     fallingTime: 0.57
     ExitTime: 0.75
-    CliffTime: 0
+    CliffTime:
+      minValue: 0
+      maxValue: 0
     CliffLandDistance: 0
     HeightMultiplier: 0.92
     ForwardMultiplier: 1
@@ -129,7 +137,9 @@ MonoBehaviour:
     JumpLandDistance: 1.245
     fallingTime: 0.55
     ExitTime: 0.8
-    CliffTime: 0.5
+    CliffTime:
+      minValue: 0
+      maxValue: 0
     CliffLandDistance: 0.5
     HeightMultiplier: 1
     ForwardMultiplier: 1
@@ -140,7 +150,9 @@ MonoBehaviour:
     JumpLandDistance: 1.66
     fallingTime: 0.624
     ExitTime: 0.8
-    CliffTime: 0
+    CliffTime:
+      minValue: 0
+      maxValue: 0
     CliffLandDistance: 0.5
     HeightMultiplier: 1
     ForwardMultiplier: 1

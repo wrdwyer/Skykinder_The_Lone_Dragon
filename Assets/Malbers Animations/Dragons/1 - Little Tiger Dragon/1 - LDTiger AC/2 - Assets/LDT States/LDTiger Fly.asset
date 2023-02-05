@@ -19,6 +19,7 @@ MonoBehaviour:
     ConstantValue: 
     Variable: {fileID: 0}
   Priority: 6
+  ResetInputOnFailed: 1
   General:
     modify: 7679
     RootMotion: 0
@@ -91,11 +92,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dba83308a0851f4897d08125b3b9420, type: 2}
   SleepFromMode: []
   QueueFrom: []
+  ResetFrom: []
   SleepFromStance: []
   stances: []
   TryLoop:
     UseConstant: 1
     ConstantValue: 1
+    Variable: {fileID: 0}
+  Duration:
+    UseConstant: 1
+    ConstantValue: 0
     Variable: {fileID: 0}
   EnterTag:
     UseConstant: 1
@@ -105,7 +111,6 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: Land
     Variable: {fileID: 0}
-  ExitFrame: 1
   ExitOnMain: 1
   EnterCooldown:
     UseConstant: 1
@@ -116,6 +121,7 @@ MonoBehaviour:
     ConstantValue: 1
     Variable: {fileID: 0}
   CanStrafe: 1
+  StrafeAnimations: 1
   MovementStrafe: 0.5
   IdleStrafe: 0.5
   debug: 0
@@ -124,7 +130,7 @@ MonoBehaviour:
   Bank: 30
   PitchLimit: 80
   BankStrafe: 0
-  PitchLimitStrafe: 0
+  PitchStrafe: 0
   MaxFlyHeight: 0
   InertiaLerp:
     UseConstant: 1

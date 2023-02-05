@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2046148b22428874b9de6db946bc13c8, type: 3}
-  m_Name: LDTiger Underwater
+  m_Script: {fileID: 11500000, guid: 5e1a8d37ca080bc4d9797c111d7a56e9, type: 3}
+  m_Name: Baby_Dragon Climb
   m_EditorClassIdentifier: 
   Active: 1
   Input: 
@@ -18,19 +18,19 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 
     Variable: {fileID: 0}
-  Priority: 7
+  Priority: 9
   ResetInputOnFailed: 1
   General:
-    modify: 7423
-    RootMotion: 0
+    modify: -1
+    RootMotion: 1
     Sprint: 1
     Gravity: 0
     Grounded: 0
     OrientToGround: 0
-    CustomRotation: 0
-    FreeMovement: 1
+    CustomRotation: 1
+    FreeMovement: 0
     AdditivePosition: 1
-    AdditiveRotation: 1
+    AdditiveRotation: 0
     Persistent: 0
     IgnoreLowerStates: 1
     LockMovement: 0
@@ -77,9 +77,36 @@ MonoBehaviour:
   MovementStrafe: 1
   IdleStrafe: 1
   debug: 1
-  Editor_Tabs1: 3
-  ID: {fileID: 11400000, guid: 4dba83308a0851f4897d08125b3b9420, type: 2}
-  Bank: 30
-  Ylimit: 80
-  EnterWaterDrag: 10
-  AllowFallOnExit: 1
+  Editor_Tabs1: 0
+  ID: {fileID: 11400000, guid: 975403cc10f8cec46a3caa6ed4e3d6c5, type: 2}
+  ClimbLayer:
+    UseConstant: 1
+    ConstantValue:
+      serializedVersion: 2
+      m_Bits: 1
+    Variable: {fileID: 0}
+  Surface: {fileID: 0}
+  automatic:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  ClimbChest: {x: 0, y: 1, z: 0}
+  ClimbHip: {x: 0, y: 0, z: 0}
+  ClimbRayLength: 1
+  DisablePivotChest: 1
+  m_rayRadius: 0.1
+  WallDistance: 0.2
+  AlignSmoothness: 10
+  GroundDistance: 0.5
+  InnerCorner: 0.4
+  OuterCornerSpeed: 0.4
+  ExitSlope: 30
+  HitTransform: ClimbHit
+  UseLedgeDetection: 1
+  RayLedgeOffset: {x: 0, y: 1, z: 0}
+  RayLedgeLength: 0.4
+  LedgeExitDistance: 0.175
+  ClimbLedge: 1
+  ClimbOff: 2
+  ClimbDown: 3
+  ClimbExitSlope: 4
