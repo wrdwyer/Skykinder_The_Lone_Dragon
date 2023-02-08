@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5559632951504424062}
   m_LocalRotation: {x: -0, y: -0, z: -0.0000000023574103, w: 1}
   m_LocalPosition: {x: 0.102, y: 0.306, z: -0.007}
-  m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,16 +127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be8dbda443dc5d4a9649e95e5300f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionFX: {fileID: 4779799753371983174, guid: 054269ac80efa6a40a80841e46db9cfa, type: 3}
-  radius: 4
+  explosionFX: {fileID: 0}
+  radius: 0.1
   centerForce: 10
   forceUplit: 0
   scanMask:
     serializedVersion: 2
     m_Bits: 0
-  damage: 100
-  isPlayerWeapon: 0
+  damage: 0
+  isPlayerWeapon: 1
   selfMask:
     serializedVersion: 2
-    m_Bits: 1064960
-  selfDamageRatio: 0.25
+    m_Bits: 1048576
+  selfDamageRatio: 0

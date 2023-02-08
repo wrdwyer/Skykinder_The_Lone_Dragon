@@ -8,33 +8,49 @@ TagManager:
   - WallRun
   - Climb
   - Fly
-  - Animal
+  - PostProcessing
+  - UI
   - Water
+  - Ignore Raycast
+  - GameController
+  - Player
+  - MainCamera
+  - EditorOnly
+  - Finish
+  - Respawn
+  - Untagged
+  - Enemy
+  - AlarmingObject
+  - BlueEnemy
+  - RedEnemy
+  - Enemy1
+  - Enemy2
+  - Animal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
+  - Cover
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - PlayerWeapon
-  - EnemyWeapon
-  - Player
   - Enemy
+  - 
+  - 
+  - PostProcessing
+  - Obstacle
   - Ground
-  - Platform
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - Animal
   - 
   - 
-  - Enemy
+  - 
   - 
   - 
   - 
