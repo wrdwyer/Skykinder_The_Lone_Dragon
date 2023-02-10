@@ -26,6 +26,7 @@ TagManager:
   - Enemy1
   - Enemy2
   - Animal
+  - FootPrints
   layers:
   - Default
   - TransparentFX
