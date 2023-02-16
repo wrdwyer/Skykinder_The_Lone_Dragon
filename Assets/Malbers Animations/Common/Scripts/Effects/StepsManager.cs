@@ -102,9 +102,10 @@ namespace MalbersAnimations
                             //var newtrack = Instantiate(Tracks);
                             //newtrack.transform.SetParentScaleFixer(hit.transform, TrackPosition);
                             //var main = newtrack.main;
-                            ////main.stopAction = ParticleSystemStopAction.Destroy;
+                            //main.stopAction = ParticleSystemStopAction.Destroy;
                             //main.simulationSpace = ParticleSystemSimulationSpace.Local;
                             //newtrack.Emit(ptrack, 1);
+                            //this.Delay_Action(() => newtrack.isPlaying, ()=> Destroy(newtrack));
                             //this.Delay_Action(() => newtrack.isPlaying, ()=> Destroy(newtrack));
                         }
                     }
