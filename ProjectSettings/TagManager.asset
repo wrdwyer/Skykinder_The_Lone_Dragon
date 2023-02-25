@@ -8,41 +8,25 @@ TagManager:
   - WallRun
   - Climb
   - Fly
-  - PostProcessing
-  - UI
-  - Water
-  - Ignore Raycast
-  - GameController
-  - Player
-  - MainCamera
-  - EditorOnly
-  - Finish
-  - Respawn
-  - Untagged
-  - Enemy
-  - AlarmingObject
-  - BlueEnemy
-  - RedEnemy
-  - Enemy1
-  - Enemy2
+  - Shootable
   - Animal
+  - Water
   - FootPrints
-  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Cover
-  - 
-  - Enemy
   - 
   - 
-  - PostProcessing
-  - Obstacle
+  - Lighting
   - Ground
+  - Postprocessing
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -52,7 +36,7 @@ TagManager:
   - Animal
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -62,6 +46,9 @@ TagManager:
   - Item
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -7,6 +7,7 @@ namespace Blobcreate.ProjectileToolkit.Demo
 	public class ProjectiStoneLauncher : MonoBehaviour
 	{
 		public Transform launchPoint;
+		public Transform target;
 		public Rigidbody bulletPrefab;
 		public LayerMask groundMask;
 		public float torqueForce = 5f;
@@ -58,9 +59,8 @@ namespace Blobcreate.ProjectileToolkit.Demo
 			{
 				if (!isReloading)
 				{
-					Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),
-						out var hit, 300f, groundMask);
-					RenderLaunch(launchPoint.position, hit.point);
+					//Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out var hit, 300f, groundMask);
+					RenderLaunch(launchPoint.position,target.position); //hit.point
 					trajectory.enabled = true;
 				}
 				else
