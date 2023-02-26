@@ -28957,8 +28957,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 20092073445527294, guid: 7721b17458de7274da9fb6df12db1326,
         type: 3}
+      propertyPath: m_FocalLength
+      value: 32.96973
+      objectReference: {fileID: 0}
+    - target: {fileID: 20092073445527294, guid: 7721b17458de7274da9fb6df12db1326,
+        type: 3}
       propertyPath: orthographic size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 20092073445527294, guid: 7721b17458de7274da9fb6df12db1326,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7721b17458de7274da9fb6df12db1326, type: 3}
@@ -33947,31 +33957,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.2413793
+      value: -4.19
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8822887
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3075523
+      value: 6.34
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28557345
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06503099
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9316751
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.21494268
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -33984,6 +33994,56 @@ PrefabInstance:
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_YAxis.Value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_YAxisRecentering.m_enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_YAxisRecentering.m_WaitTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[0].m_Height
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[0].m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[1].m_Height
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[1].m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[2].m_Height
+      value: -0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6,
+        type: 3}
+      propertyPath: m_Orbits.Array.data[2].m_Radius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1313660786842236440, guid: 4d47ce2792cce664781eb41fc44fb8c6,
         type: 3}
@@ -40425,7 +40485,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: e17891a8-1d57-453c-980a-9f82ddae8b6e
+  sharedInstanceID: 03119c2c-9b83-4c31-8096-5e740ae53699
 --- !u!114 &1581038238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57313,6 +57373,96 @@ PrefabInstance:
     - target: {fileID: 4889984757136832, guid: d1ae645fd21d33140a784e7f610bcd46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _dontDestroyOnLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.runInEditMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_iOS.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_ps4.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_ps5.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_tvOS.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_webGL.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_psVita.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_stadia.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_switch.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_android.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_xboxOne.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_windowsUWP.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_osxStandalone.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_gameCoreXboxOne.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_linuxStandalone.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_gameCoreScarlett.disableMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114846103998691064, guid: d1ae645fd21d33140a784e7f610bcd46,
+        type: 3}
+      propertyPath: _userData.configVars.platformVars_windowsStandalone.disableMouse
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1ae645fd21d33140a784e7f610bcd46, type: 3}
