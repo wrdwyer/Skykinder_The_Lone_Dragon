@@ -1,19 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlazeAISpace
 {
     public class HitStateBehaviour : MonoBehaviour
     {   
-        [Header("ANIMATIONS"), Tooltip("Hit animation name.")]
-        public string hitAnim;
+        [Header("HIT PROPERTIES"), Tooltip("Hit animation names and their durations. One will be chosen at random on every hit.")]
+        public List<HitData> hitAnims;
         [Min(0), Tooltip("The animation transition from current animation to the hit animation.")]
         public float hitAnimT = 0.2f;
         [Min(0), Tooltip("The gap time between replaying the hit animations to avoid having the animation play on every single hit which may look bad on very fast and repitive attacks such as a machine gun.")]
         public float hitAnimGap = 0.3f;
-
-
-        [Header("DURATION"), Min(0), Tooltip("The duration of the hit state.")]
-        public float hitDuration = 1;
         
         
         [Header("ATTACK OPTION"), Tooltip("If set to true will cancel the attack if got hit.")]
@@ -33,10 +30,19 @@ namespace BlazeAISpace
 
 
         BlazeAI blaze;
-        float _duration = 0;
-        float _gapTimer = 0;
         bool playedAudio;
 
+        float _duration = 0;
+        float _gapTimer = 0;
+        float hitDuration = 0;
+
+        [System.Serializable]
+        public struct HitData {
+            [Tooltip("Set the animation name of the hit.")]
+            public string animName;
+            [Tooltip("Set the duration of the hit state for this animation.")]
+            public float duration;
+        }
 
         #region UNITY METHODS
 
@@ -87,13 +93,15 @@ namespace BlazeAISpace
             // check if a hit was registered
             if (blaze.hitRegistered) {
                 blaze.hitRegistered = false;
+                int chosenHitIndex = Random.Range(0, hitAnims.Count);
+                hitDuration = hitAnims[chosenHitIndex].duration;
 
                 if (_duration == 0) {
-                    blaze.animManager.Play(hitAnim, hitAnimT, true);
+                    blaze.animManager.Play(hitAnims[chosenHitIndex].animName, hitAnimT, true);
                 }
                 else {
                     if (_gapTimer >= hitAnimGap) {
-                        blaze.animManager.Play(hitAnim, hitAnimT, true);
+                        blaze.animManager.Play(hitAnims[chosenHitIndex].animName, hitAnimT, true);
                         _gapTimer = 0;
                     }
                 }
@@ -195,8 +203,16 @@ namespace BlazeAISpace
                 BlazeAI script = agentsColl[i].GetComponent<BlazeAI>();
 
                 // if caught collider is that of the same AI -> skip
-                if (agentsColl[i].transform.IsChildOf(transform)) {
+                if (transform.IsChildOf(agentsColl[i].transform)) {
                     continue;
+                }
+
+
+                // if the caught collider is actually the current AI's enemy (AI vs AI) -> skip
+                if (blaze.enemyToAttack != null) {
+                    if (blaze.enemyToAttack.transform.IsChildOf(agentsColl[i].transform)) {
+                        continue;
+                    }
                 }
 
                 

@@ -124,37 +124,42 @@ namespace BlazeAISpace
 
 
         // mark the waypoints in editor-view
-        public void Draw(Vector3 position)
+        public void Draw(Vector3 position, BlazeAI blaze)
         {
             if (randomize) {
                 if (showRandomizeRadius) {
                     Gizmos.color = Color.yellow;
                     Gizmos.DrawWireSphere(position, randomizeRadius);
                 }
+
                 return;
             }
 
+
             for (int i = 0; i < waypoints.Count; i++) {
-                if (i == 0) {
-                    Gizmos.color = new Color(1f, 0.3f, 0f);
-                }
-                else {
-                    Gizmos.color = new Color(1f, 0.6f, 0.0047f);
-                }
+                if (i == 0) Gizmos.color = new Color(1f, 0.3f, 0f);
+                else Gizmos.color = new Color(1f, 0.6f, 0.0047f);
 
                 
-                Gizmos.DrawSphere(waypoints[i], 0.3f);
+                RaycastHit hit;
+                if (Physics.Raycast(waypoints[i], -Vector3.up, out hit, Mathf.Infinity, blaze.groundLayers)) {
+                    Debug.DrawRay(waypoints[i], hit.point - waypoints[i], new Color(1f, 0.3f, 0f), 0.1f);
+                    Gizmos.DrawSphere(hit.point, 0.3f);
+                }
                 
+                if (blaze.groundLayers.value == 0) Debug.LogWarning("Ground layers property not set. Make sure to set the ground layers in order to see the waypoints visually.");
                 
+
                 // Draws the waypoint rotation cubes
                 if (waypointsRotation[i].x != 0 || waypointsRotation[i].y != 0) {
                     Gizmos.color = Color.red;
-                    Gizmos.DrawCube(new Vector3(waypoints[i].x + waypointsRotation[i].x, waypoints[i].y, waypoints[i].z + waypointsRotation[i].y), new Vector3(0.3f, 0.3f, 0.3f));
+                    Gizmos.DrawCube(new Vector3(hit.point.x + waypointsRotation[i].x, hit.point.y, hit.point.z + waypointsRotation[i].y), new Vector3(0.3f, 0.3f, 0.3f));
                 }
 
 
                 if (waypoints.Count > 1) {
                     Gizmos.color = Color.blue;
+
                     if (i == 0) {
                         Gizmos.DrawLine(waypoints[0], waypoints[1]);
                     }

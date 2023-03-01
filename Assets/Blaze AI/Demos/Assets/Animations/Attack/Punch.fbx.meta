@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 2664f222f7b81d04999f8018fe475b2f
 ModelImporter:
-  serializedVersion: 21300
+  serializedVersion: 20300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -170,7 +170,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
     motionNodeName: Root
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Errors found in
@@ -219,7 +218,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.15484396
+      - time: 0.15104167
         functionName: Attacking
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -297,7 +296,6 @@ ModelImporter:
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
-    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -309,7 +307,6 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8

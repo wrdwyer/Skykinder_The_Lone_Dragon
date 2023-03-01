@@ -61,8 +61,10 @@ public class BlazeAI : MonoBehaviour
     public bool showPoints = false;
 
     
-    [Header("WARN EMPTY BEHAVIOURS"), Tooltip("Will print in the console to warn you if any behaviour is empty.")]
+    [Header("WARNINGS"), Tooltip("Will print in the console to warn you if any behaviour is empty.")]
     public bool warnEmptyBehavioursOnStart = true;
+    [Tooltip("Will print in the console to warn you if any animation name is empty or doesn't exist.")]
+    public bool warnEmptyAnimations = true;
 
     
     [Header("NORMAL STATE")]
@@ -137,7 +139,7 @@ public class BlazeAI : MonoBehaviour
     public Transform companionTo;
     [Tooltip("The companion behaviour script.")]
     public MonoBehaviour companionBehaviour;
-
+    
     
     #region SYSTEM VARIABLES
 
@@ -225,7 +227,7 @@ public class BlazeAI : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        animManager = new AnimationManager(anim);
+        animManager = new AnimationManager(anim, this);
         capsuleCollider = GetComponent<CapsuleCollider>();
         navmeshAgent = GetComponent<NavMeshAgent>();
         
@@ -391,12 +393,13 @@ public class BlazeAI : MonoBehaviour
             }
         }
 
+
         SetAgentAudio();
     }
 
     void OnDrawGizmosSelected() 
     {
-        waypoints.Draw(transform.position);
+        waypoints.Draw(transform.position, this);
         vision.ShowVisionSpheres(visionT);
         ShowCenterPosition();
         ShowEnemyContactRadius();
@@ -406,11 +409,16 @@ public class BlazeAI : MonoBehaviour
 
     // enable & set important components on awake
     void ComponentsOnAwake()
-    {
+    {   
+        NavMesh.avoidancePredictionTime = 0.5f;
+
+
+        // set navmesh agent properties
         navmeshAgent.enabled = true;
         navmeshAgent.stoppingDistance = 0;
         navmeshAgent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
-        NavMesh.avoidancePredictionTime = 0.5f;
+
+
         if (coverShooterMode) capsuleCollider.isTrigger = true;
 
 
@@ -420,57 +428,66 @@ public class BlazeAI : MonoBehaviour
         }
 
 
+        #if UNITY_EDITOR
         if (warnEmptyBehavioursOnStart) {
             CheckEmptyBehaviours();
         }
+        #endif
     }
     
+    #if UNITY_EDITOR
     // print in the console if a behaviour is missing a script
     void CheckEmptyBehaviours()
     {
         if (useNormalStateOnAwake) {
             if (normalStateBehaviour == null) {
-                Debug.Log($"Normal State Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Normal State Behaviour is empty in game object: {gameObject.name}.");
             }
         }
+
 
         if (useAlertStateOnAwake) {
             if (alertStateBehaviour == null) {
-                Debug.Log($"Alert State Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Alert State Behaviour is empty in game object: {gameObject.name}.");
             }
         }
+
 
         if (canDistract) {
             if (distractedStateBehaviour == null) {
-                Debug.Log($"Distracted State Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Distracted State Behaviour is empty in game object: {gameObject.name}.");
             }
         }
+
 
         if (useSurprisedState) {
             if (surprisedStateBehaviour == null) {
-                Debug.Log($"Surprised State Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Surprised State Behaviour is empty in game object: {gameObject.name}.");
             }
         }
 
+
         if (!coverShooterMode) {
             if (attackStateBehaviour == null) {
-                Debug.Log($"Attack State Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Attack State Behaviour is empty in game object: {gameObject.name}.");
             }
         }
         else {
             if (coverShooterBehaviour == null) {
-                Debug.Log($"Cover Shooter Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Cover Shooter Behaviour is empty in game object: {gameObject.name}.");
             }
 
             if (goingToCoverBehaviour == null) {
-                Debug.Log($"Going To Cover Behaviour is empty in game object: {gameObject.name}.");
+                Debug.LogWarning($"Going To Cover Behaviour is empty in game object: {gameObject.name}.");
             }
         }
 
+
         if (hitStateBehaviour == null) {
-            Debug.Log($"Hit State Behaviour is empty in game object: {gameObject.name}.");
+            Debug.LogWarning($"Hit State Behaviour is empty in game object: {gameObject.name}.");
         }
     }
+    #endif
 
     void OnDisable() 
     {
@@ -489,24 +506,31 @@ public class BlazeAI : MonoBehaviour
     }
 
     #endregion
-
+    
     #region MOVEMENT
     
     // move to location
-    public bool MoveTo(Vector3 location, float moveSpeed, float turnSpeed, string animName=null, float animT=0.25f, string dir="front", float closestPointDistance=0) {
+    public bool MoveTo(Vector3 location, float moveSpeed, float turnSpeed, string animName=null, float animT=0.25f, string dir="front", float closestPointDistance=0) 
+    {
         if (dir == "front") {
             if ((!isAttacking || enemyToAttack == null) && (lastCalculatedPath == location) && cornersQueue.Count == 0) {
                 // check if AI is already at the min possible distance from location
-                float dist = (pathCorner - transform.position).sqrMagnitude;
-                float minDis = navmeshAgent.radius * 2;
-                
+                float dist = (new Vector3(pathCorner.x, transform.position.y, pathCorner.z) - transform.position).sqrMagnitude;
+                float minDis = 0;
+
+                if (navmeshAgent.radius < 0.3f) minDis = 0.3f;
+                else minDis = navmeshAgent.radius;
+
+                minDis = minDis * 2;
+
                 if (dist <= (minDis * minDis)) {
+                    movedToLocation = false;
                     return true;
                 }
             }
         }
-        
 
+        
         // clear the corners
         cornersQueue.Clear();
 
@@ -532,6 +556,7 @@ public class BlazeAI : MonoBehaviour
                 closestPointElapsed = 0;
                 
                 Vector3 point;
+                
                 if (ClosestNavMeshPoint(location, closestPointDistance, out point)) {
                     location = point;
                 }
@@ -546,10 +571,10 @@ public class BlazeAI : MonoBehaviour
         
         
         // add the corners to queue so we can follow
-        for (int i=0; i<path.corners.Length; i++) {
+        for (int i=1; i<path.corners.Length; i++) {
             cornersQueue.Enqueue(path.corners[i]);
         }
-        
+    
 
         // get the next corner
         GetNextCorner();
@@ -561,28 +586,35 @@ public class BlazeAI : MonoBehaviour
     // follow the path corners
     bool GoToCorner(string anim, float animT, float moveSpeed, float turnSpeed, string dir)
     {
-        float currentDistance = (new Vector3(pathCorner.x, pathCorner.y, pathCorner.z) - transform.position).sqrMagnitude;
+        float currentDistance = 0f;
         float minDistance = 0f;
-
+       
         bool isLastCorner = false;
         bool isReachedEnd = false;
-
         
-        // check if going to last corner or not
+
+        // check if there are other corners
         if (cornersQueue.Count > 0) {
-            minDistance = 0.3f;
+            if (navmeshAgent.radius < 0.3f) minDistance = 0.3f;
+            else minDistance = navmeshAgent.radius;
+
+            currentDistance = (pathCorner - transform.position).sqrMagnitude;
         }
         else {
-            minDistance = navmeshAgent.radius * 2;
+            if (navmeshAgent.radius < 0.3f) minDistance = 0.3f;
+            else minDistance = navmeshAgent.radius;
+
+            minDistance = minDistance * 2;
             isLastCorner = true;
+
+            // for the final point -> the distance check differs
+            currentDistance = (new Vector3(pathCorner.x, transform.position.y, pathCorner.z) - transform.position).sqrMagnitude;
         }
 
         
         // if reached min distance of corner
         if (currentDistance <= (minDistance * minDistance)) {
-            if (isLastCorner) {
-                isReachedEnd = true;
-            }
+            if (isLastCorner) isReachedEnd = true;
             else {
                 GetNextCorner();
             }
@@ -593,7 +625,7 @@ public class BlazeAI : MonoBehaviour
         if (state != State.attack && state != State.goingToCover) {
             // turn to face path corner
             if (waypoints.useMovementTurning) {
-                // check if should turning
+                // check is turning
                 if (isturningToCorner) {
                     // if hadn't fully turned yet -> return
                     if (!TurnTo(pathCorner, GetTurnAnim("left"), GetTurnAnim("right"), waypoints.turningAnimT, waypoints.turnSpeed, waypoints.useTurnAnims)) {
@@ -621,9 +653,9 @@ public class BlazeAI : MonoBehaviour
 
         // rotate to corner
         RotateTo(pathCorner, turnSpeed);
+
         
-        
-        // play passed move animation
+        // play the passed move animation
         animManager.Play(anim, animT);
 
         
@@ -645,8 +677,8 @@ public class BlazeAI : MonoBehaviour
                     transformDir = transform.forward;
                     break;
             }
-
-            navmeshAgent.Move(transformDir * Time.deltaTime * moveSpeed);
+            
+            navmeshAgent.Move(transformDir * moveSpeed * Time.deltaTime);
         }
 
 
@@ -663,8 +695,8 @@ public class BlazeAI : MonoBehaviour
 
     // smooth rotate agent to location
     public void RotateTo(Vector3 location, float speed)
-    {
-        Quaternion lookRotation = Quaternion.LookRotation((location - transform.position).normalized);
+    {   
+        Quaternion lookRotation = Quaternion.LookRotation((new Vector3(location.x, transform.position.y, location.z) - transform.position).normalized);
         lookRotation = new Quaternion(0f, lookRotation.y, 0f, lookRotation.w);
         transform.rotation = Quaternion.Slerp(new Quaternion(0f, transform.rotation.y, 0f, transform.rotation.w), lookRotation, speed * Time.deltaTime);
     }
@@ -835,7 +867,11 @@ public class BlazeAI : MonoBehaviour
             }
         }
 
+        
+        // decrement to previous waypoint index so when back to behaviour it automatically increments
+        waypointIndex--;
 
+        
         // change the state to distracted
         SetState(State.distracted);
     }
@@ -920,7 +956,7 @@ public class BlazeAI : MonoBehaviour
             }
 
 
-            // if companion mode is on -> eliminate the companion from targeting 
+            // if companion mode is on -> eliminate the AI from targeting companion 
             if (companionMode && companionTo != null && visionColl[i].transform.IsChildOf(companionTo)) {
                 continue;
             }
@@ -1073,8 +1109,8 @@ public class BlazeAI : MonoBehaviour
 
 
         // track distances
-        distanceToEnemySqrMag = (new Vector3(enemyToAttack.transform.position.x, enemyToAttack.transform.position.y, enemyToAttack.transform.position.z) - transform.position).sqrMagnitude;
-        distanceToEnemy = Vector3.Distance(new Vector3(enemyToAttack.transform.position.x, enemyToAttack.transform.position.y, enemyToAttack.transform.position.z), transform.position);
+        distanceToEnemySqrMag = (ValidateYPoint(enemyToAttack.transform.position) - transform.position).sqrMagnitude;
+        distanceToEnemy = Vector3.Distance(ValidateYPoint(enemyToAttack.transform.position), transform.position);
 
 
         // activate state
@@ -1155,10 +1191,9 @@ public class BlazeAI : MonoBehaviour
             Vector3 npcDir = transform.position + centerPosition;
             Vector3 colDir = item.ClosestPoint(item.bounds.center) - npcDir;
 
-            
             // start with center raycast, if caught nothing -> top left, if caught nothing -> top right
             if (Physics.Raycast(npcDir, colDir, out rayHit, Mathf.Infinity, layersToHit)) {
-                if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(item.transform)) {
+                if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(transform)) {
                     detectionScore++;
                 }
                 else {
@@ -1166,7 +1201,7 @@ public class BlazeAI : MonoBehaviour
                     colDir = (item.ClosestPoint(item.bounds.max) - npcDir);
 
                     if (Physics.Raycast(npcDir, colDir, out rayHit, Mathf.Infinity, layersToHit)) {
-                        if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(item.transform)) {
+                        if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(transform)) {
                             detectionScore++;
                         }
                         else {
@@ -1174,7 +1209,7 @@ public class BlazeAI : MonoBehaviour
                             colDir = (item.ClosestPoint(new Vector3(item.bounds.center.x - item.bounds.extents.x, item.bounds.center.y + item.bounds.extents.y, item.bounds.center.z + item.bounds.extents.z)) - npcDir);
                             
                             if (Physics.Raycast(npcDir, colDir, out rayHit, Mathf.Infinity, layersToHit)) {
-                                if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(item.transform)) {
+                                if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(transform)) {
                                     detectionScore++;
                                 }
                             }
@@ -1189,7 +1224,7 @@ public class BlazeAI : MonoBehaviour
         if (detectionScore >= minDetectionScore) {
             return true;
         }
-
+        
         return false;
     }
 
@@ -1248,13 +1283,13 @@ public class BlazeAI : MonoBehaviour
 
 
         // if companion mode is on -> eliminate the companion being targeted
-        if (companionMode && companionTo != null && closeTarget.transform.IsChildOf(companionTo)) {
+        if (companionMode && companionTo != null && companionTo.IsChildOf(closeTarget.transform)) {
             return;
         }
 
 
         // if caught collider is a child of the same AI then skip
-        if (closeTarget.transform.IsChildOf(transform)) {
+        if (transform.IsChildOf(closeTarget.transform)) {
             return;
         }
 
@@ -1265,7 +1300,7 @@ public class BlazeAI : MonoBehaviour
                 // check if there's a previously ignored enemy
                 if (ignoredEnemy != null) {
                     // if the previously ignored enemy didn't leave vision -> don't trigger function again until it gets out of vision and caught again
-                    if (closeTarget.transform.IsChildOf(ignoredEnemy.transform)) {
+                    if (ignoredEnemy.transform.IsChildOf(closeTarget.transform)) {
                         return;
                     }
 
@@ -1398,6 +1433,131 @@ public class BlazeAI : MonoBehaviour
         }
     }
 
+    // check if gameobject is completely visible by firing rays at it's center
+    public bool CheckObjectCompletelyVisible(GameObject go, int layersToHit, int minDetectionScore)
+    {
+        if (go == null) return false;
+        if (minDetectionScore > 3) minDetectionScore = 3;
+
+
+        Collider objColl = go.transform.GetComponentInChildren<Collider>();
+    
+        Vector3 npcDir;
+        Vector3 colDir;
+
+        RaycastHit[] hitResults = new RaycastHit[15];
+        List<RaycastHit> hitList = new List<RaycastHit>();
+
+        int detectionScore = 0;
+        float xSide = Mathf.Clamp((go.transform.position - transform.position).normalized.x, 0.1f, navmeshAgent.radius/2);
+        
+
+        // fired from AIs right side
+        npcDir = transform.TransformPoint(new Vector3(xSide, 0f, 0f) + centerPosition);
+        colDir = (objColl.bounds.center) - npcDir;
+        
+        int hits = Physics.RaycastNonAlloc(npcDir, colDir, hitResults, distanceToEnemy, layersToHit);
+    
+        for (int i=0; i<hits; i++) {
+            if (transform.IsChildOf(hitResults[i].transform) || hitResults[i].transform.IsChildOf(transform)) {
+                continue;
+            }
+
+            if (hitResults[i].distance == 0 || hitResults[i].point == Vector3.zero) {
+                continue;
+            }
+
+            hitList.Add(hitResults[i]);
+        }
+
+        if (hitList.Count > 0) {
+            hitList.Sort((x, y) => { return (x.distance).CompareTo((y.distance)); });
+            
+            if (go.transform.IsChildOf(hitList[0].transform)) {
+                detectionScore++;
+            }
+        }
+
+        // FINISHED LEFT CHECK
+
+
+
+        // fired from AIs left side
+        hitResults = new RaycastHit[15];
+        hitList.Clear();
+        hits = 0;
+
+        npcDir = transform.TransformPoint(new Vector3(-xSide, 0f, 0f) + centerPosition);
+        colDir = (objColl.bounds.center) - npcDir;
+
+        hits = Physics.RaycastNonAlloc(npcDir, colDir, hitResults, distanceToEnemy + 1f, layersToHit);
+        
+        for (int i=0; i<hits; i++) {
+            if (transform.IsChildOf(hitResults[i].transform) || hitResults[i].transform.IsChildOf(transform)) {
+                continue;
+            }
+
+            if (hitResults[i].distance == 0) {
+                continue;
+            }
+
+            hitList.Add(hitResults[i]);
+        }
+
+        if (hitList.Count > 0) {
+            hitList.Sort((x, y) => { return (x.distance).CompareTo((y.distance)); });
+            
+            if (go.transform.IsChildOf(hitList[0].transform)) {
+                detectionScore++;
+            }
+        }
+
+        // FINISHED RIGHT CHECK
+
+
+        // fired from center of AI
+        hitResults = new RaycastHit[15];
+        hitList.Clear();
+        hits = 0;
+
+        npcDir = transform.position + centerPosition;
+        colDir = (objColl.bounds.center) - npcDir;
+
+        hits = Physics.SphereCastNonAlloc(npcDir, 0.1f, colDir.normalized, hitResults, distanceToEnemy, layersToHit);
+    
+        for (int i=0; i<hits; i++) {
+            if (transform.IsChildOf(hitResults[i].transform) || hitResults[i].transform.IsChildOf(transform)) {
+                continue;
+            }
+
+            if (hitResults[i].distance == 0) {
+                continue;
+            }
+
+            hitList.Add(hitResults[i]);
+        }
+
+        if (hitList.Count > 0) {
+            hitList.Sort((x, y) => { return (x.distance).CompareTo((y.distance)); });
+    
+            if (go.transform.IsChildOf(hitList[0].transform)) {
+                detectionScore++;
+            }
+        }
+
+        // FINISHED CENTER CHECK
+
+
+        
+        // if detection score is bigger or equal to the minimum required -> return true
+        if (detectionScore >= minDetectionScore) {
+            return true;
+        }
+
+
+        return false;   
+    }
+
     #endregion
 
     #region ATTACK STATE
@@ -1467,7 +1627,7 @@ public class BlazeAI : MonoBehaviour
         if (!IsPathReachable(checkEnemyPosition)) {
             Vector3 point;
 
-            if (ClosestNavMeshPoint(enemy.transform.position, Vector3.Distance(enemy.transform.position, transform.position), out point)) {
+            if (ClosestNavMeshPoint(enemy.transform.position, navmeshAgent.height * 2, out point)) {
                 checkEnemyPosition = point;
             }
             else {
@@ -1476,7 +1636,7 @@ public class BlazeAI : MonoBehaviour
             }   
         }
 
-
+        
         enemyColPoint = enemy.transform.position;
         enemyToAttack = enemy;
         
@@ -1486,6 +1646,7 @@ public class BlazeAI : MonoBehaviour
         }
     }
 
+    // returns whether the AI is a companion to the passed gameobject
     bool IsCompanion(GameObject enemy)
     {
         if (enemy == null) {
@@ -1694,6 +1855,9 @@ public class BlazeAI : MonoBehaviour
     // get random point from navmesh
     public Vector3 RandomNavMeshLocation() 
     {
+        if (navmeshAgent == null) return transform.position;
+
+        
         Vector3 randomDirection = Random.insideUnitSphere * waypoints.randomizeRadius;
         randomDirection += startPosition;
         
@@ -1712,6 +1876,7 @@ public class BlazeAI : MonoBehaviour
         if (distance <= radius * radius) {
             RandomNavMeshLocation();
         }
+
 
         endDestination = point;
         return point;
@@ -1781,8 +1946,8 @@ public class BlazeAI : MonoBehaviour
         return isPathReachable;
     }
 
-    // get closest point to navmesh
-    bool ClosestNavMeshPoint(Vector3 center, float range, out Vector3 result)
+    // get closest navmesh point to center
+    public bool ClosestNavMeshPoint(Vector3 center, float range, out Vector3 result)
     {
         for (int i = 0; i < range; i++) {
             NavMeshHit hit;
@@ -1861,6 +2026,7 @@ public class BlazeAI : MonoBehaviour
     #endregion
 
     #region INSPECTOR GUI
+    #if UNITY_EDITOR
 
     // set the default normal, alert, attack and cover shooter behaviours
     public void SetPrimeBehaviours()
@@ -1980,6 +2146,7 @@ public class BlazeAI : MonoBehaviour
         waypoints.useMovementTurning = false;
     }
 
+    #endif
     #endregion
 
     #region PUBLIC METHODS (APIS)

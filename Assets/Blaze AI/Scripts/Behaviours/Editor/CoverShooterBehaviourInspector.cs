@@ -28,6 +28,7 @@ namespace BlazeAISpace
         attackEnemyCover,
 
         braveMeter,
+        changeCoverFrequency,
 
         callOthers,
         callRadius,
@@ -99,6 +100,7 @@ namespace BlazeAISpace
 
 
             braveMeter = serializedObject.FindProperty("braveMeter");
+            changeCoverFrequency = serializedObject.FindProperty("changeCoverFrequency");
 
 
             callOthers = serializedObject.FindProperty("callOthers");
@@ -188,6 +190,11 @@ namespace BlazeAISpace
             EditorGUILayout.Space(spaceBetween);
             EditorGUILayout.LabelField("BRAVENESS", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(braveMeter);
+
+
+            EditorGUILayout.Space(spaceBetween);
+            EditorGUILayout.LabelField("CHANGE COVER", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(changeCoverFrequency);
 
 
             EditorGUILayout.Space(spaceBetween);

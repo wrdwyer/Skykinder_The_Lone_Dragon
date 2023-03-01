@@ -12,13 +12,8 @@ namespace BlazeAISpace
         showSearchDistance,
 
         minCoverHeight,
-
-        highCoverHeight,
         highCoverAnim,
-
-        lowCoverHeight,
         lowCoverAnim,
-
         coverAnimT,
 
         rotateToCoverNormal,
@@ -35,13 +30,8 @@ namespace BlazeAISpace
             showSearchDistance = serializedObject.FindProperty("showSearchDistance");
 
             minCoverHeight = serializedObject.FindProperty("minCoverHeight");
-
-            highCoverHeight = serializedObject.FindProperty("highCoverHeight");
             highCoverAnim = serializedObject.FindProperty("highCoverAnim");
-
-            lowCoverHeight = serializedObject.FindProperty("lowCoverHeight");
             lowCoverAnim = serializedObject.FindProperty("lowCoverAnim");
-
             coverAnimT = serializedObject.FindProperty("coverAnimT");
 
             rotateToCoverNormal = serializedObject.FindProperty("rotateToCoverNormal");
@@ -69,16 +59,8 @@ namespace BlazeAISpace
 
             EditorGUILayout.LabelField("COVERS HEIGHT", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(minCoverHeight);
-            
-            EditorGUILayout.Space(5);
-            EditorGUILayout.PropertyField(highCoverHeight);
             EditorGUILayout.PropertyField(highCoverAnim);
-            
-            EditorGUILayout.Space(5);
-            EditorGUILayout.PropertyField(lowCoverHeight);
             EditorGUILayout.PropertyField(lowCoverAnim);
-
-            EditorGUILayout.Space(5);
             EditorGUILayout.PropertyField(coverAnimT);
 
 

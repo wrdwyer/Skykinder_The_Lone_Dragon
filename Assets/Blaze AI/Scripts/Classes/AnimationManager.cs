@@ -5,14 +5,17 @@ namespace BlazeAISpace
     public class AnimationManager
     {
         Animator anim;
+        BlazeAI blaze;
+
         string currentState;
         float animSpeed = 1f;
 
 
         // constructor
-        public AnimationManager (Animator animator)
+        public AnimationManager (Animator animator, BlazeAI blazeAI)
         {
             anim = animator;
+            blaze = blazeAI;
         }
 
 
@@ -26,11 +29,21 @@ namespace BlazeAISpace
             if (!CheckAnimExists(state)) {
                 if (state.Length > 0) {
                     anim.enabled = false;
-                    Debug.LogWarning($"The animation name: {state} - doesn't exist and has been ignored. Please re-check your animation names.");
+
+                    #if UNITY_EDITOR
+                    if (blaze.warnEmptyAnimations) {
+                        Debug.LogWarning($"The animation name: {state} - doesn't exist and has been ignored. Please re-check your animation names.");
+                    }
+                    #endif
                 }
                 else {
                     anim.enabled = true;
-                    Debug.LogWarning("No animation set.");
+
+                    #if UNITY_EDITOR
+                    if (blaze.warnEmptyAnimations) {
+                        Debug.LogWarning("No animation set.");
+                    }
+                    #endif
                 }
                 
                 return;

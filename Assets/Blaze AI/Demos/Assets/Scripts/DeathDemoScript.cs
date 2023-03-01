@@ -21,23 +21,6 @@ public class DeathDemoScript : MonoBehaviour
     {
         // hit the AI
         if (Input.GetKeyDown(KeyCode.E)) {
-            hitState.hitAnim = "Hit";
-            hitState.hitDuration = 0.7f;
-            blazeAI.Hit();
-
-            if (blazeHealth.currentHealth > 0) {
-                blazeHealth.currentHealth -= 10;
-            }
-
-            if (blazeHealth.currentHealth <= 0) {
-                blazeAI.Death();
-            }
-        }
-
-        // hit the AI
-        if (Input.GetKeyDown(KeyCode.W)) {
-            hitState.hitAnim = "Hit 2";
-            hitState.hitDuration = 0.6f;
             blazeAI.Hit();
 
             if (blazeHealth.currentHealth > 0) {

@@ -12,6 +12,11 @@ TagManager:
   - Animal
   - Water
   - FootPrints
+  - Fire
+  - Enemy
+  - Ground
+  - ClingPoint
+  - Damagable
   layers:
   - Default
   - TransparentFX
@@ -24,7 +29,7 @@ TagManager:
   - Lighting
   - Ground
   - Postprocessing
-  - 
+  - DestroyItDebris
   - 
   - 
   - 

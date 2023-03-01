@@ -4725,6 +4725,7 @@ MonoBehaviour:
   idleAnim: Melee Idle
   moveAnim: Fight Run
   idleMoveT: 0.25
+  ranged: 0
   distanceFromEnemy: 5
   attackDistance: 1
   layersCheckOnAttacking:
@@ -4777,7 +4778,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   onAttackRotateSpeed: 5
   onAttackRotate: 0
-  searchEmptyLocation: 0
+  searchLocationRadius: 0
   timeToStartSearch: 2
   searchPoints: 3
   searchPointAnim: 
@@ -5073,6 +5074,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 948333428}
   useAlertStateOnAwake: 0
@@ -5102,12 +5110,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &948333434
 Animator:
   serializedVersion: 5
@@ -5575,7 +5580,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990005465}
-  m_LocalRotation: {x: 0.024841594, y: 0.73063916, z: -0.048205644, w: 0.6806067}
+  m_LocalRotation: {x: 0.024841603, y: 0.73063916, z: -0.048205663, w: 0.6806067}
   m_LocalPosition: {x: 0.030886218, y: 0.10365424, z: 0.0016340911}
   m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
   m_Children:
@@ -6938,7 +6943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246575156}
-  m_LocalRotation: {x: 0.024841603, y: 0.73063916, z: -0.048205663, w: 0.6806067}
+  m_LocalRotation: {x: 0.024841608, y: 0.73063916, z: -0.048205674, w: 0.6806067}
   m_LocalPosition: {x: 0.030886218, y: 0.10365424, z: 0.0016340911}
   m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
   m_Children:
@@ -7926,6 +7931,7 @@ MonoBehaviour:
   idleAnim: Melee Idle
   moveAnim: Fight Run
   idleMoveT: 0.25
+  ranged: 0
   distanceFromEnemy: 5
   attackDistance: 1
   layersCheckOnAttacking:
@@ -7978,7 +7984,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   onAttackRotateSpeed: 5
   onAttackRotate: 0
-  searchEmptyLocation: 0
+  searchLocationRadius: 0
   timeToStartSearch: 2
   searchPoints: 3
   searchPointAnim: 
@@ -8266,6 +8272,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 1423372236}
   useAlertStateOnAwake: 0
@@ -8295,12 +8308,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &1423372242
 Animator:
   serializedVersion: 5
@@ -8797,6 +8807,7 @@ MonoBehaviour:
   idleAnim: Melee Idle
   moveAnim: Fight Run
   idleMoveT: 0.25
+  ranged: 0
   distanceFromEnemy: 5
   attackDistance: 1
   layersCheckOnAttacking:
@@ -8849,7 +8860,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   onAttackRotateSpeed: 5
   onAttackRotate: 0
-  searchEmptyLocation: 0
+  searchLocationRadius: 0
   timeToStartSearch: 2
   searchPoints: 3
   searchPointAnim: 
@@ -9137,6 +9148,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 1476428938}
   useAlertStateOnAwake: 0
@@ -9166,12 +9184,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &1476428944
 Animator:
   serializedVersion: 5
@@ -10198,7 +10213,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691760778}
-  m_LocalRotation: {x: 0.024841603, y: 0.73063916, z: -0.048205663, w: 0.6806067}
+  m_LocalRotation: {x: 0.024841608, y: 0.73063916, z: -0.048205674, w: 0.6806067}
   m_LocalPosition: {x: 0.030886218, y: 0.10365424, z: 0.0016340911}
   m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
   m_Children:
@@ -10505,7 +10520,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773227463}
-  m_LocalRotation: {x: 0.024841603, y: 0.73063916, z: -0.048205663, w: 0.6806067}
+  m_LocalRotation: {x: 0.024841608, y: 0.73063916, z: -0.048205674, w: 0.6806067}
   m_LocalPosition: {x: 0.030886218, y: 0.10365424, z: 0.0016340911}
   m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
   m_Children:
@@ -11502,6 +11517,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 2023609405}
   useAlertStateOnAwake: 0
@@ -11531,12 +11553,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &2023609407
 Animator:
   serializedVersion: 5
@@ -11648,6 +11667,7 @@ MonoBehaviour:
   idleAnim: Melee Idle
   moveAnim: Fight Run
   idleMoveT: 0.25
+  ranged: 0
   distanceFromEnemy: 5
   attackDistance: 1
   layersCheckOnAttacking:
@@ -11700,7 +11720,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   onAttackRotateSpeed: 5
   onAttackRotate: 0
-  searchEmptyLocation: 0
+  searchLocationRadius: 0
   timeToStartSearch: 2
   searchPoints: 3
   searchPointAnim: Alert Idle
@@ -13646,7 +13666,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4929230367901087102}
-  m_LocalRotation: {x: 0.024841594, y: 0.73063916, z: -0.048205644, w: 0.6806067}
+  m_LocalRotation: {x: 0.024841595, y: 0.73063916, z: -0.048205648, w: 0.6806067}
   m_LocalPosition: {x: 0.030886218, y: 0.10365424, z: 0.0016340911}
   m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
   m_Children:

@@ -691,11 +691,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press W & E to hit the agent with different animations.
+  m_Text: 'Press E to hit the agent with different animations.
 
 
-    Press R
-    to return alive.'
+    Press R to return
+    alive.'
 --- !u!222 &323984830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3093,7 +3093,7 @@ MonoBehaviour:
   agentAudio: {fileID: 2023609411}
   waypoints:
     waypoints:
-    - {x: -6.91, y: -1.47, z: -17.15}
+    - {x: -6, y: -0.67, z: -17.15}
     waypointsRotation:
     - {x: 0, y: 0}
     timeBeforeTurning: 0.5
@@ -3140,6 +3140,13 @@ MonoBehaviour:
   checkEnemyContact: 0
   enemyContactRadius: 1.2
   showEnemyContactRadius: 0
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 2023609405}
   useAlertStateOnAwake: 0
@@ -3153,22 +3160,28 @@ MonoBehaviour:
   canDistract: 0
   distractedStateBehaviour: {fileID: 0}
   priorityLevel: 50
+  turnAlertOnDistract: 0
   playDistractedAudios: 0
   hitStateBehaviour: {fileID: 2023609410}
   deathAnim: Death
   deathAnimT: 0.25
   playDeathAudio: 1
+  deathCallRadius: 10
+  agentLayersToDeathCall:
+    serializedVersion: 2
+    m_Bits: 0
+  showDeathCallRadius: 0
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 5
-  distanceCull: 0
-  friendly: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &2023609407
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3181,10 +3194,11 @@ Animator:
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &2023609408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3222,12 +3236,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397fc0712619be347835f00b7b271c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitAnim: This hit anim name gets changed by code
+  hitAnims:
+  - animName: Hit
+    duration: 0.7
+  - animName: Hit 2
+    duration: 0.6
   hitAnimT: 0.25
-  hitDuration: 0.5
   hitAnimGap: 0
   cancelAttackOnHit: 0
   playAudio: 1
+  callOthersRadius: 5
+  agentLayersToCall:
+    serializedVersion: 2
+    m_Bits: 0
+  showCallRadius: 0
 --- !u!82 &2023609411
 AudioSource:
   m_ObjectHideFlags: 0

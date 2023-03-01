@@ -15,15 +15,11 @@ namespace BlazeAISpace
         public bool showSearchDistance;
 
 
-        [Tooltip("The minimum height of cover obstacles to search for. Obstacle height is measured using collider.bounds.y. Use the GetCoverHeight script to get any obstacle height.")]
-        public float minCoverHeight = 1.25f;
-        [Tooltip("If height of obstacle (collider) is this or more, then it's a high cover and the high cover animation will be used. Obstacle height is measured using collider.bounds.y. Use the GetCoverHeight script to get any obstacle height.")]
-        public float highCoverHeight = 2f;
-        [Tooltip("The animation name to play when in high cover.")]
+        [Tooltip("The minimum height of cover obstacles to search for. Cover height is measured using collider.bounds.y. Use the GetCoverHeight script to get any obstacle height.")]
+        public float minCoverHeight = 1f;
+        [Tooltip("The animation name to play when in high cover. The cover is considered to be a high cover when it's height is bigger than [Min Cover Height] property. The height is calculated using collider.bounds.y. You can use the BlazeAI GetCoverHeight script to get the height of every obstacle.")]
         public string highCoverAnim;
-        [Tooltip("If height of obstacle (collider) is this or less, then it's a low cover and the low cover animation will be used. Obstacle height is measured using collider.bounds.y. Use the GetCoverHeight script to get any obstacle height.")]
-        public float lowCoverHeight = 1f;
-        [Tooltip("The animation name to play when in low cover.")]
+        [Tooltip("The animation name to play when in low cover. The cover is considered to be a low cover when it's height is smaller than or equal to [Min Cover Height] property. The height is calculated using collider.bounds.y. You can use the BlazeAI GetCoverHeight script to get the height of every obstacle.")]
         public string lowCoverAnim;
         public float coverAnimT = 0.25f;
 
@@ -58,7 +54,6 @@ namespace BlazeAISpace
         {
             blaze = GetComponent<BlazeAI>();    
             coverShooterBehaviour = GetComponent<CoverShooterBehaviour>();
-
 
             // force shut if not the same state
             if (blaze.state != BlazeAI.State.goingToCover) {
@@ -105,20 +100,24 @@ namespace BlazeAISpace
                     if (blaze.MoveTo(coverProps.coverPoint, coverShooterBehaviour.moveSpeed, coverShooterBehaviour.turnSpeed, coverShooterBehaviour.moveAnim, coverShooterBehaviour.idleMoveT)) {
                         TakeCover();
                     }
-                }
-                else {
-                    if (blaze.hitWhileInCover) {
-                        FindCover(lastCover);
-                        return;
-                    }
 
-                    FindCover();
+                    return;
                 }
+            
+                
+                if (blaze.hitWhileInCover) {
+                    FindCover(lastCover);
+                    return;
+                }
+
+
+                FindCover();
+                return;
             }
-            else {
-                // if there's no target return to cover shooter behaviour
-                blaze.SetState(BlazeAI.State.attack);
-            }
+            
+
+            // if there's no target return to cover shooter behaviour
+            blaze.SetState(BlazeAI.State.attack);
         }  
 
         #endregion
@@ -146,18 +145,21 @@ namespace BlazeAISpace
                     hitReduction++;
                 }
                 else {
-                    // check if the cover is the same as the last one -> don't take same cover twice in a row
-                    if (lastCover != null) {
-                        if (coverColls[i].transform.IsChildOf(lastCover)) {
-                            coverColls[i] = null;
-                            hitReduction++;
-                            continue;
+                    // calculate the change cover frequency -> don't take same cover twice in a row
+                    if (hits >= 2 && coverToAvoid == null) {
+                        if (CalculateChangeCoverFrequency() && lastCover != null) {
+                            if (lastCover.IsChildOf(coverColls[i].transform)) {
+                                coverColls[i] = null;
+                                hitReduction++;
+                                continue;
+                            }
                         }
                     }
+                    
 
-
+                    // if player is hiding behind cover -> remove that cover as being eligible
                     if (playerCover != null) {
-                        if (coverColls[i].transform.IsChildOf(playerCover)) {
+                        if (playerCover.IsChildOf(coverColls[i].transform)) {
                             coverColls[i] = null;
                             hitReduction++;
                             continue;
@@ -322,13 +324,13 @@ namespace BlazeAISpace
         void TakeCover()
         {
             // high cover
-            if (coverProps.coverHeight >= highCoverHeight) {
+            if (coverProps.coverHeight > minCoverHeight) {
                 blaze.animManager.Play(highCoverAnim, coverAnimT);
             }
 
             
             // low cover
-            if (coverProps.coverHeight <= lowCoverHeight) {
+            if (coverProps.coverHeight <= minCoverHeight) {
                 blaze.animManager.Play(lowCoverAnim, coverAnimT);
             }
 
@@ -381,7 +383,7 @@ namespace BlazeAISpace
         {
             Vector3 targetDir = blaze.enemyToAttack.transform.position - transform.position;
             RaycastHit coverBlownRayHit;
-
+            
             if (Physics.Raycast(transform.position + blaze.centerPosition, targetDir, out coverBlownRayHit, Mathf.Infinity, Physics.AllLayers)) {
                 if (blaze.enemyToAttack.transform.IsChildOf(coverBlownRayHit.transform)) {
                     if (coverShooterBehaviour.coverBlownDecision == CoverShooterBehaviour.CoverBlownDecision.AlwaysAttack) {
@@ -429,6 +431,33 @@ namespace BlazeAISpace
             {
                 return Vector3.Distance(transform.position, A.transform.position).CompareTo(Vector3.Distance(transform.position, B.transform.position));
             }
+        }
+
+        // return true or false for whether to change last cover or not
+        bool CalculateChangeCoverFrequency()
+        {
+            // if change cover frequency is less or equal to zero -> don't change cover
+            if (coverShooterBehaviour.changeCoverFrequency <= 0) {
+                return false;
+            }
+
+
+            // if change cover frequency is more or equal to 10 -> change cover
+            if (coverShooterBehaviour.changeCoverFrequency >= 10) {
+                return true;
+            }
+
+
+            // calculate the odds and chance of changing cover
+            int odds = 10 - coverShooterBehaviour.changeCoverFrequency;
+            int chanceOfChangingCover = Random.Range(1, 10);
+
+            if (chanceOfChangingCover > odds) {
+                return true;
+            }
+
+
+            return false;
         }
 
         #endregion

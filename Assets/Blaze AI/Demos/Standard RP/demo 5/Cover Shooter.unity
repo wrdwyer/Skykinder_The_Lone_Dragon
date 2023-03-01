@@ -4854,10 +4854,8 @@ MonoBehaviour:
   hideSensitivity: -0.25
   searchDistance: 25
   showSearchDistance: 0
-  minCoverHeight: 1.25
-  highCoverHeight: 3
+  minCoverHeight: 1
   highCoverAnim: High Cover
-  lowCoverHeight: 2
   lowCoverAnim: Low Cover
   coverAnimT: 0.25
   rotateToCoverNormal: 1
@@ -4926,7 +4924,7 @@ MonoBehaviour:
   moveBackwardsAttack: 1
   strafe: 1
   strafeSpeed: 3
-  strafeTime: {x: -1, y: -1}
+  strafeTime: {x: 1, y: 3}
   strafeWaitTime: {x: 0.2, y: 0.5}
   leftStrafeAnim: Pistol Left Strafe
   rightStrafeAnim: Pistol Right Strafe
@@ -5228,6 +5226,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 803026979}
   useAlertStateOnAwake: 0
@@ -5257,12 +5262,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &803026986
 Animator:
   serializedVersion: 5
@@ -6199,10 +6201,8 @@ MonoBehaviour:
   hideSensitivity: -0.25
   searchDistance: 25
   showSearchDistance: 0
-  minCoverHeight: 1.25
-  highCoverHeight: 3
+  minCoverHeight: 1
   highCoverAnim: High Cover
-  lowCoverHeight: 2
   lowCoverAnim: Low Cover
   coverAnimT: 0.25
   rotateToCoverNormal: 1
@@ -6271,7 +6271,7 @@ MonoBehaviour:
   moveBackwardsAttack: 1
   strafe: 1
   strafeSpeed: 3
-  strafeTime: {x: -1, y: -1}
+  strafeTime: {x: 1, y: 3}
   strafeWaitTime: {x: 0.2, y: 0.5}
   leftStrafeAnim: Pistol Left Strafe
   rightStrafeAnim: Pistol Right Strafe
@@ -6573,6 +6573,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 911314602}
   useAlertStateOnAwake: 0
@@ -6602,12 +6609,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &911314609
 Animator:
   serializedVersion: 5
@@ -10641,10 +10645,8 @@ MonoBehaviour:
   hideSensitivity: -0.25
   searchDistance: 25
   showSearchDistance: 0
-  minCoverHeight: 1.25
-  highCoverHeight: 3
+  minCoverHeight: 1
   highCoverAnim: High Cover
-  lowCoverHeight: 2
   lowCoverAnim: Low Cover
   coverAnimT: 0.25
   rotateToCoverNormal: 1
@@ -10713,7 +10715,7 @@ MonoBehaviour:
   moveBackwardsAttack: 1
   strafe: 1
   strafeSpeed: 3
-  strafeTime: {x: -1, y: -1}
+  strafeTime: {x: 1, y: 3}
   strafeWaitTime: {x: 0.2, y: 0.5}
   leftStrafeAnim: Pistol Left Strafe
   rightStrafeAnim: Pistol Right Strafe
@@ -11011,6 +11013,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 1757999695}
   useAlertStateOnAwake: 0
@@ -11040,12 +11049,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &1757999702
 Animator:
   serializedVersion: 5
@@ -12355,10 +12361,8 @@ MonoBehaviour:
   hideSensitivity: -0.25
   searchDistance: 25
   showSearchDistance: 0
-  minCoverHeight: 1.25
-  highCoverHeight: 3
+  minCoverHeight: 1
   highCoverAnim: High Cover
-  lowCoverHeight: 2
   lowCoverAnim: Low Cover
   coverAnimT: 0.25
   rotateToCoverNormal: 1
@@ -12435,6 +12439,13 @@ MonoBehaviour:
   checkEnemyContact: 1
   enemyContactRadius: 1.5
   showEnemyContactRadius: 1
+  friendly: 0
+  distanceCull: 0
+  ignoreUnreachableEnemy: 0
+  fallBackPoints: []
+  showPoints: 0
+  warnEmptyBehavioursOnStart: 1
+  warnEmptyAnimations: 1
   useNormalStateOnAwake: 1
   normalStateBehaviour: {fileID: 2023609415}
   useAlertStateOnAwake: 0
@@ -12464,12 +12475,9 @@ MonoBehaviour:
       m_Calls: []
   destroyOnDeath: 0
   timeBeforeDestroy: 0
-  friendly: 0
-  distanceCull: 0
-  ignoreUnreachableEnemy: 0
-  fallBackPoints: []
-  showPoints: 0
-  warnEmptyBehavioursOnStart: 1
+  companionMode: 0
+  companionTo: {fileID: 0}
+  companionBehaviour: {fileID: 0}
 --- !u!95 &2023609407
 Animator:
   serializedVersion: 5
@@ -12787,7 +12795,7 @@ MonoBehaviour:
   moveBackwardsAttack: 1
   strafe: 1
   strafeSpeed: 3
-  strafeTime: {x: -1, y: -1}
+  strafeTime: {x: 1, y: 3}
   strafeWaitTime: {x: 0.2, y: 0.5}
   leftStrafeAnim: Pistol Left Strafe
   rightStrafeAnim: Pistol Right Strafe

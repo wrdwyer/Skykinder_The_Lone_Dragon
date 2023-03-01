@@ -7,9 +7,10 @@ using BlazeAISpace;
 
 public class BlazeAIEditor : Editor
 {
-    string[] tabs = {"General", "States", "Surprised", "Distract", "Hit", "Death", "Companion"};
+    string[] tabs = {"General", "States", "Vision", "Surprised", "Distract", "Hit", "Death", "Companion"};
     int tabSelected = 0;
     int tabIndex = -1;
+
 
     // variables
     SerializedProperty useRootMotion,
@@ -68,6 +69,7 @@ public class BlazeAIEditor : Editor
     showPoints,
     
     warnEmptyBehavioursOnStart,
+    warnEmptyAnimations,
 
     companionMode,
     companionTo,
@@ -115,6 +117,7 @@ public class BlazeAIEditor : Editor
 
 
         warnEmptyBehavioursOnStart = serializedObject.FindProperty("warnEmptyBehavioursOnStart");
+        warnEmptyAnimations = serializedObject.FindProperty("warnEmptyAnimations");
 
 
         // STATES TAB
@@ -194,18 +197,21 @@ public class BlazeAIEditor : Editor
                 StatesTab(script);
                 break;
             case 2:
-                SurprisedTab(script);
+                VisionTab();
                 break;
             case 3:
-                DistractionsTab(script);
+                SurprisedTab(script);
                 break;
             case 4:
-                HitTab(script);
+                DistractionsTab(script);
                 break;
             case 5:
-                DeathTab(script);
+                HitTab(script);
                 break;
             case 6:
+                DeathTab(script);
+                break;
+            case 7:
                 CompanionTab(script);
                 break;
         }
@@ -224,23 +230,34 @@ public class BlazeAIEditor : Editor
 
         
         // selected btn style
-        var selectedStyle = new GUIStyle(GUI.skin.button);
-        selectedStyle.fontSize = 14;
+        var selectedStyle = new GUIStyle();
+        selectedStyle.normal.textColor = Color.white;
+        selectedStyle.active.textColor = Color.white;
+        selectedStyle.margin = new RectOffset(4,4,2,2);
+        selectedStyle.alignment = TextAnchor.MiddleCenter;
+
+        selectedStyle.normal.background = MakeTex(1, 1, new Color(1f, 0f, 0.1f, 0.8f));
         
 
-        // render the toolbar
-        GUILayout.BeginHorizontal(EditorStyles.helpBox);
+        // draw the toolbar
+        GUILayout.BeginHorizontal();
         
         foreach (var item in tabs) {
             tabIndex++;
 
+            if (tabIndex == 4) {
+                GUILayout.EndHorizontal();
+                EditorGUILayout.Space(0.2f);
+                GUILayout.BeginHorizontal();
+            }
+
             if (tabIndex == tabSelected) {
                 // selected button
-                GUILayout.Button(item, selectedStyle, GUILayout.MinWidth(70), GUILayout.Height(45));
+                GUILayout.Button(item, selectedStyle, GUILayout.MinWidth(80), GUILayout.Height(45));
             }
             else {
                 // unselected buttons
-                if (GUILayout.Button(item, unselectedStyle, GUILayout.MinWidth(70), GUILayout.Height(45))) {
+                if (GUILayout.Button(item, unselectedStyle, GUILayout.MinWidth(80), GUILayout.Height(45))) {
                     // this will trigger when a button is pressed
                     tabSelected = tabIndex;
                 }
@@ -259,15 +276,13 @@ public class BlazeAIEditor : Editor
         EditorGUILayout.PropertyField(showCenterPosition);
         EditorGUILayout.PropertyField(groundLayers);
 
+
         EditorGUILayout.Space(5);
         EditorGUILayout.PropertyField(audioScriptable);
         EditorGUILayout.PropertyField(agentAudio);
         
         EditorGUILayout.Space(5);
         EditorGUILayout.PropertyField(waypoints);
-        
-        EditorGUILayout.Space(5);
-        EditorGUILayout.PropertyField(vision);
 
 
         EditorGUILayout.Space(5);
@@ -296,6 +311,7 @@ public class BlazeAIEditor : Editor
 
         EditorGUILayout.Space(5);
         EditorGUILayout.PropertyField(warnEmptyBehavioursOnStart);
+        EditorGUILayout.PropertyField(warnEmptyAnimations);
         
 
         EditorGUILayout.Space(10);
@@ -336,6 +352,13 @@ public class BlazeAIEditor : Editor
 
 
         EditorGUILayout.Space(10);
+    }
+
+
+    void VisionTab()
+    {
+        EditorGUILayout.Space(5);
+        EditorGUILayout.PropertyField(vision);
     }
 
 
@@ -427,5 +450,23 @@ public class BlazeAIEditor : Editor
         if (GUILayout.Button("Add Companion Behaviour", GUILayout.Height(40))) {
             script.SetCompanionBehaviour();
         }
+    }
+
+    Texture2D MakeTex(int width, int height, Color col)
+    {
+        Color[] pix = new Color[width * height];
+        
+
+        for (int i = 0; i < pix.Length; ++i) {
+            pix[i] = col;
+        }
+
+
+        Texture2D result = new Texture2D(width, height);
+        result.SetPixels(pix);
+        result.Apply();
+
+
+        return result;
     }
 }

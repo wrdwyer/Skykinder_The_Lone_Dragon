@@ -14,6 +14,7 @@ namespace BlazeAISpace
         moveAnim,
         idleMoveT,
 
+        ranged,
         distanceFromEnemy,
         attackDistance,
         layersCheckOnAttacking,
@@ -85,6 +86,7 @@ namespace BlazeAISpace
             moveAnim = serializedObject.FindProperty("moveAnim");
             idleMoveT = serializedObject.FindProperty("idleMoveT");
 
+            ranged = serializedObject.FindProperty("ranged");
             distanceFromEnemy = serializedObject.FindProperty("distanceFromEnemy");
             attackDistance = serializedObject.FindProperty("attackDistance");
             layersCheckOnAttacking = serializedObject.FindProperty("layersCheckOnAttacking");
@@ -165,6 +167,7 @@ namespace BlazeAISpace
 
             EditorGUILayout.Space(spaceBetween);
             EditorGUILayout.LabelField("ATTACKING & DISTANCES", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(ranged);
             EditorGUILayout.PropertyField(distanceFromEnemy);
             EditorGUILayout.PropertyField(attackDistance);
             EditorGUILayout.PropertyField(layersCheckOnAttacking);

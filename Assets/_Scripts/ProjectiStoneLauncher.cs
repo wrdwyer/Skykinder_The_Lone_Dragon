@@ -60,7 +60,7 @@ namespace Blobcreate.ProjectileToolkit.Demo
 				if (!isReloading)
 				{
 					//Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out var hit, 300f, groundMask);
-					RenderLaunch(launchPoint.position,target.position); //hit.point
+					RenderLaunch(launchPoint.position,target.position); //hit.point (WD Mod)
 					trajectory.enabled = true;
 				}
 				else
@@ -108,8 +108,8 @@ namespace Blobcreate.ProjectileToolkit.Demo
 			if (isReloading)
 				return;
 
-			Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, 300f, groundMask);
-			Fire(hit.point);
+			//Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, 300f, groundMask);
+			Fire(target.position);//(WD MOD)
 			isReloading = true;
 			currentA = smallA;
 			currentTorque = 0f;

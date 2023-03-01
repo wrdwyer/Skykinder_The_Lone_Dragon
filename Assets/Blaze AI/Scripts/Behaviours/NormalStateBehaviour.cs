@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 namespace BlazeAISpace
 {
     public class NormalStateBehaviour : MonoBehaviour
@@ -78,39 +79,6 @@ namespace BlazeAISpace
             SetEndDestination();
         }
 
-        void Update()
-        {
-            // end destination is set by blaze.NextWayPoint or blaze.RandomNavmeshLocation in the SetEndDestination() method
-            // OR if forced to move to a specific location using MoveToLocation() inside Blaze.cs
-            waypoint = blaze.endDestination;
-            
-
-            if (blaze.movedToLocation && isIdle) {
-                ForceMove();
-            }
-
-
-            // check if blaze has been called to move to a certain location
-            movedToLocation = blaze.movedToLocation;
-
-
-            // if forced to stay idle
-            if (blaze.stayIdle) {
-                StayIdle();
-                return;
-            }
-
-
-            MoveToPoint();
-            SetIdleState();
-            AudioTimer();
-
-
-            if (avoidFacingObstacles) {
-                ObstacleRay();
-            }
-        }
-
         void OnEnable() 
         {
             if (blaze == null) return;
@@ -135,6 +103,40 @@ namespace BlazeAISpace
         {
             if (showObstacleRay) {
                 Debug.DrawRay(transform.position + obstacleRayOffset, transform.TransformDirection(Vector3.forward) * obstacleRayDistance, Color.yellow);
+            }
+        }
+
+
+        void Update()
+        {
+            // end destination is set by blaze.NextWayPoint or blaze.RandomNavmeshLocation in the SetEndDestination() method
+            // OR if forced to move to a specific location using MoveToLocation() inside Blaze.cs
+            waypoint = blaze.endDestination;
+    
+
+            if (blaze.movedToLocation && isIdle) {
+                ForceMove();
+            }
+
+
+            // check if blaze has been called to move to a certain location
+            movedToLocation = blaze.movedToLocation;
+
+
+            // if forced to stay idle
+            if (blaze.stayIdle) {
+                StayIdle();
+                return;
+            }
+
+
+            MoveToPoint();
+            SetIdleState();
+            AudioTimer();
+
+
+            if (avoidFacingObstacles) {
+                ObstacleRay();
             }
         }
         
@@ -185,7 +187,7 @@ namespace BlazeAISpace
                 }
 
 
-                // WaypointTurning() turns AI to waypoint rotation and returns true when done
+                // turns AI to waypoint rotation and returns true when done
                 if (blaze.WayPointTurning()) {
                     StartCoroutine("Idle");
                 }
@@ -194,13 +196,14 @@ namespace BlazeAISpace
                 return;
             }
             
-
+            
             // code below runs if not reached position yet 
+            
 
             if (isIdle) {
                 ForceMove();
             }
-
+        
 
             // checks if the passed location in MoveTo() is reachable
             if (!blaze.isPathReachable) {
