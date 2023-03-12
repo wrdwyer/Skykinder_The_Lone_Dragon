@@ -50,7 +50,7 @@ TagManager:
   - 
   - 
   - Item
-  - 
+  - lava
   m_SortingLayers:
   - name: Fire
     uniqueID: 3804908061
