@@ -1100,7 +1100,7 @@ MonoBehaviour:
   StaticObjectsLayer: 0
   AlignStrength: 1
   ExtraDragForRotationMode: 100
-  GravityStrength: {x: 0, y: -0.9889853, z: -0.00000011789624}
+  GravityStrength: {x: 0, y: -0.9885517, z: -0.00000011784455}
   LimitBodyVelocityInGravityMode: 0
   SetGravityInDirectionOfMouse: 0
   PausePositionReajustment: 1

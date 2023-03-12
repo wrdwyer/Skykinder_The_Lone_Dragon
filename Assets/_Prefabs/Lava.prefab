@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5519497845504284968}
   - component: {fileID: 5519497845504284969}
   - component: {fileID: 5519497845504284970}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5519497845504284964}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.96, y: -10.84, z: 4.81}
-  m_LocalScale: {x: 10.65, y: 10.65, z: 10.65}
+  m_LocalScale: {x: 28.87, y: 28.87, z: 28.87}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5519497845719983930}
@@ -108,8 +108,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5519497845719983930}
-  - component: {fileID: 5519497845719983929}
-  m_Layer: 0
+  - component: {fileID: 6996479939494710543}
+  m_Layer: 31
   m_Name: Aura Layer Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,14 +124,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5519497845719983931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 10, y: 0.89, z: 8.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5519497845504284971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5519497845719983929
+--- !u!114 &6996479939494710543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   volumeShape:
     shape: 1
     fading:
-      falloffExponent: 3
+      falloffExponent: 1.16
       xPositiveCubeFade: 0.25
       xNegativeCubeFade: 0.25
       yPositiveCubeFade: 0.25
@@ -186,10 +186,10 @@ MonoBehaviour:
       space: 0
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
-      scale: {x: 5, y: 5, z: 5}
+      scale: {x: 1, y: 1, z: 1}
   densityInjection:
     enable: 1
-    strength: 5
+    strength: 0.78
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
@@ -218,7 +218,7 @@ MonoBehaviour:
       contrast: 1
       saturateOutputValues: 0
   scatteringInjection:
-    enable: 0
+    enable: 1
     strength: 0.25
     useNoiseMask: 1
     useNoiseMaskLevels: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
   lightInjection:
     injectionParameters:
       enable: 1
-      strength: 1
+      strength: 0.55
       useNoiseMask: 1
       useNoiseMaskLevels: 1
       noiseMaskLevelParameters:
@@ -290,7 +290,7 @@ MonoBehaviour:
         levelHiThreshold: 1
         outputLowValue: 0
         outputHiValue: 1
-        contrast: 5
+        contrast: 3.28
         saturateOutputValues: 0
       useTexture2DMask: 1
       useTexture2DMaskLevels: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
       saturateOutputValues: 0
   boostInjection:
     enable: 1
-    strength: 1
+    strength: 0.5
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
