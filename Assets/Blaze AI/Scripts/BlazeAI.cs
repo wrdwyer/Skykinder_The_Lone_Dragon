@@ -233,7 +233,7 @@ public class BlazeAI : MonoBehaviour
         
         path = new NavMeshPath();
         cornersQueue = new Queue<Vector3>();
-
+        
 
         SetAgentAudio();
         
@@ -258,6 +258,7 @@ public class BlazeAI : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isAttacking);
         // set the vision to head if available
         if (vision.head == null) {
             visionT = transform;

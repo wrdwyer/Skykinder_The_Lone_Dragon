@@ -77,5 +77,5 @@ MonoBehaviour:
   MovementStrafe: 0
   IdleStrafe: 0.2
   debug: 0
-  Editor_Tabs1: 0
+  Editor_Tabs1: 3
   ID: {fileID: 11400000, guid: 7370df9c769c2764381ad7c76eb3d949, type: 2}
