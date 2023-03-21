@@ -4908,6 +4908,7 @@ MonoBehaviour:
   coverBlownDecision: 2
   attackEnemyCover: 2
   braveMeter: 0
+  changeCoverFrequency: 0
   callOthers: 1
   callRadius: 70
   showCallRadius: 1
@@ -6255,6 +6256,7 @@ MonoBehaviour:
   coverBlownDecision: 2
   attackEnemyCover: 2
   braveMeter: 0
+  changeCoverFrequency: 0
   callOthers: 1
   callRadius: 70
   showCallRadius: 1
@@ -10699,6 +10701,7 @@ MonoBehaviour:
   coverBlownDecision: 2
   attackEnemyCover: 2
   braveMeter: 0
+  changeCoverFrequency: 0
   callOthers: 1
   callRadius: 70
   showCallRadius: 1
@@ -12779,6 +12782,7 @@ MonoBehaviour:
   coverBlownDecision: 2
   attackEnemyCover: 2
   braveMeter: 0
+  changeCoverFrequency: 0
   callOthers: 1
   callRadius: 70
   showCallRadius: 1

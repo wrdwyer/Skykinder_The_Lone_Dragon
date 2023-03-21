@@ -1095,13 +1095,6 @@ namespace BlazeAISpace
         // the actual strafing movement
         void StrafeMovement(int direction)
         {   
-            // if agent isn't on navmesh
-            if (!blaze.IsPointOnNavMesh(blaze.ValidateYPoint(transform.position), blaze.navmeshAgent.radius)) {
-                StopStrafe();
-                return;
-            }
-
-
             RaycastHit hit;
             int layersToHit = blaze.vision.hostileAndAlertLayers | strafeLayersToAvoid | blaze.vision.layersToDetect;
 
@@ -1115,7 +1108,7 @@ namespace BlazeAISpace
 
             Vector3 enemyToAttackPos = new Vector3(blaze.enemyToAttack.transform.position.x, transform.position.y, blaze.enemyToAttack.transform.position.z);
             float distanceDiff = Vector3.Distance(enemyToAttackPos, transform.position);
-
+            
 
             // if direction is left
             if (direction == 0) {
@@ -1157,8 +1150,15 @@ namespace BlazeAISpace
             // check if point reachable and has navmesh every 5 frames
             if (strafeCheckPathElapsed >= 5) {
                 strafeCheckPathElapsed = 0;
-                Vector3 goToPoint = blaze.ValidateYPoint((transform.position + blaze.centerPosition) + (transformDir * (blaze.navmeshAgent.radius * 2 + (blaze.navmeshAgent.height / 2) )));
 
+                // if agent isn't on navmesh
+                if (!blaze.IsPointOnNavMesh(blaze.ValidateYPoint(transform.position), blaze.navmeshAgent.radius)) {
+                    StopStrafe();
+                    return;
+                }
+
+
+                Vector3 goToPoint = blaze.ValidateYPoint((transform.position + blaze.centerPosition) + (transformDir * (blaze.navmeshAgent.radius * 2 + (blaze.navmeshAgent.height / 2) )));
                 if (!blaze.IsPathReachable(goToPoint)) {
                     ChangeStrafeDirection();
                     return;
@@ -1193,6 +1193,8 @@ namespace BlazeAISpace
             }
 
 
+            layersToHit = blaze.vision.hostileAndAlertLayers | blaze.vision.layersToDetect;
+            
             // to check from an offset if enemy (or cover) will not be visible
             if (Physics.Raycast(shoulderOffset, blaze.enemyColPoint - shoulderOffset, out hit, Mathf.Infinity, layersToHit)) {   
                 // if should attack target cover
@@ -1485,6 +1487,11 @@ namespace BlazeAISpace
                 }
 
                 hitList.Add(hits[i]);
+            }
+
+
+            if (hitList.Count <= 0) {
+                return false;
             }
 
 

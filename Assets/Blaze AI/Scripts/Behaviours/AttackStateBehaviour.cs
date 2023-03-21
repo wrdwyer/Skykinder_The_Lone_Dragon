@@ -30,7 +30,7 @@ namespace BlazeAISpace
         [Tooltip("If enabled, the AI will attack every certain interval and not wait to be called by the manager.")]
         public bool attackInIntervals;
         [Min(0), Tooltip("The amount of time to pass before attacking. A value will be randomized between the two inputs. For a constant value set the two inputs to the same value.")]
-        public Vector2 attackInIntervalsTime = new Vector2(0.5f, 3f);
+        public Vector2 attackInIntervalsTime = new Vector2(1, 4);
 
 
         [Tooltip("Play a random audio from the audio scriptable when AI is waiting for it's turn to attack target. Set the audios from the audio scriptable in Blaze AI > General tab.")]
@@ -196,6 +196,7 @@ namespace BlazeAISpace
             blaze = GetComponent<BlazeAI>();
             alertStateBehaviour = GetComponent<AlertStateBehaviour>();
             agentPriority = blaze.navmeshAgent.avoidancePriority;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Guards/Alert",GetComponent<Transform>().position);
 
             ValidateDistance();
 
@@ -249,6 +250,10 @@ namespace BlazeAISpace
 
         void OnEnable()
         {
+            if (blaze == null) {
+                Start();
+            }
+            
             checkPathElapsed = checkPathFrames;
             IdlePosition();
         }
@@ -1124,6 +1129,7 @@ namespace BlazeAISpace
             // strafe wait timer used in strafeWaitTimer() 
             isStrafeWait = true;
         }
+
         
         // check if can strafe move and trigger the movement 
         void Strafe()
@@ -1136,18 +1142,12 @@ namespace BlazeAISpace
             StrafeMovement(strafeDir);
         }
 
+
         // the actual strafing movement
         void StrafeMovement(int direction)
         {   
-            // if agent isn't on navmesh
-            if (!blaze.IsPointOnNavMesh(blaze.ValidateYPoint(transform.position), blaze.navmeshAgent.radius)) {
-                StopStrafe();
-                return;
-            }
-
-            
             RaycastHit hit;
-            int layersToHit = blaze.vision.hostileAndAlertLayers | strafeLayersToAvoid;
+            int layersToHit = blaze.vision.hostileAndAlertLayers | strafeLayersToAvoid | blaze.vision.layersToDetect;
             
             Vector3 strafePoint = Vector3.zero;
             Vector3 offsetPlayer;
@@ -1198,8 +1198,15 @@ namespace BlazeAISpace
             // check if point reachable and has navmesh every 5 frames
             if (strafeCheckPathElapsed >= 5) {
                 strafeCheckPathElapsed = 0;
-                Vector3 goToPoint = blaze.ValidateYPoint((transform.position) + (transformDir * (blaze.navmeshAgent.radius * 2 + (blaze.navmeshAgent.height / 2) )));
 
+                // if agent isn't on navmesh
+                if (!blaze.IsPointOnNavMesh(blaze.ValidateYPoint(transform.position), blaze.navmeshAgent.radius)) {
+                    StopStrafe();
+                    return;
+                }
+                
+
+                Vector3 goToPoint = blaze.ValidateYPoint((transform.position) + (transformDir * (blaze.navmeshAgent.radius * 2 + (blaze.navmeshAgent.height / 2) )));
                 if (!blaze.IsPathReachable(goToPoint)) {
                     StopOrChangeStrafeDirection();
                     return;
@@ -1234,6 +1241,8 @@ namespace BlazeAISpace
             }
             
             
+            layersToHit = blaze.vision.hostileAndAlertLayers | blaze.vision.layersToDetect;
+            
             // to check from an offset if enemy will not be visible
             if (Physics.Raycast(offset, blaze.enemyColPoint - offset, out hit, Mathf.Infinity, layersToHit))
             {   
@@ -1255,11 +1264,13 @@ namespace BlazeAISpace
             }
         }
 
+
         void StopStrafe()
         {
             isStrafing = false;
             _strafingTimer = 0f;
         }
+
 
         // wait to strafe
         void strafeWaitTimer()

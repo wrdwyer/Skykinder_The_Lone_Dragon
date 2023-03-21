@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TerrainMaterial_db2fe2f6-5a6e-46f9-8d44-8f9eba0fe7b8
   m_Shader: {fileID: 4800000, guid: 393b4ce2c53aaa243a4d40cf0b012ec0, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,17 +25,17 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorBlend:
-        m_Texture: {fileID: -3857704198314557304, guid: 9213dfcf6003cb44f87e44d234a793a0,
+        m_Texture: {fileID: -3654031403223210770, guid: 9213dfcf6003cb44f87e44d234a793a0,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorByHeight:
-        m_Texture: {fileID: 4026021507392481468, guid: 9213dfcf6003cb44f87e44d234a793a0,
+        m_Texture: {fileID: -6127582622283277016, guid: 9213dfcf6003cb44f87e44d234a793a0,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorByNormal:
-        m_Texture: {fileID: -1581991458757421001, guid: 9213dfcf6003cb44f87e44d234a793a0,
+        m_Texture: {fileID: -5475437186852089338, guid: 9213dfcf6003cb44f87e44d234a793a0,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -76,6 +77,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
     - _BumpScale: 1
@@ -99,3 +101,4 @@ Material:
     - _Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     - _Dimension: {r: 512, g: 256, b: 512, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

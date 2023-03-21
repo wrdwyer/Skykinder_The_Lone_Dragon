@@ -233,7 +233,7 @@ public class BlazeAI : MonoBehaviour
         
         path = new NavMeshPath();
         cornersQueue = new Queue<Vector3>();
-        
+
 
         SetAgentAudio();
         
@@ -258,7 +258,6 @@ public class BlazeAI : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isAttacking);
         // set the vision to head if available
         if (vision.head == null) {
             visionT = transform;
@@ -572,7 +571,8 @@ public class BlazeAI : MonoBehaviour
         
         
         // add the corners to queue so we can follow
-        for (int i=1; i<path.corners.Length; i++) {
+        int max = path.corners.Length;
+        for (int i=1; i<max; i++) {
             cornersQueue.Enqueue(path.corners[i]);
         }
     
@@ -952,30 +952,32 @@ public class BlazeAI : MonoBehaviour
         
         for (int i=0; i<visionCollNum; i++) {
             // if caught collider is a child of the same AI then skip
-            if (visionColl[i].transform.IsChildOf(transform)) {
+            if (transform.IsChildOf(visionColl[i].transform)) {
                 continue;
             }
 
 
             // if companion mode is on -> eliminate the AI from targeting companion 
-            if (companionMode && companionTo != null && visionColl[i].transform.IsChildOf(companionTo)) {
+            if (companionMode && companionTo != null && companionTo.IsChildOf(visionColl[i].transform)) {
                 continue;
             }
 
 
-            // check for alert tag
-            int alertTagIndex = vision.GetAlertTagIndex(visionColl[i].tag);
+            // check for alert tag only if AI isn't in attack state
+            if (state != State.attack) {
+                int alertTagIndex = vision.GetAlertTagIndex(visionColl[i].tag);
 
-            if (alertTagIndex >= 0) {
-                GameObject alertObj = visionColl[i].transform.gameObject;
-                
-                // check if within vision angle
-                if (Vector3.Angle(visionT.forward, (alertObj.transform.position - npcDir)) < (angle * 0.5f)) {
-                    // check height
-                    float alertheight = alertObj.transform.position.y - (centerPosition.y + visionT.position.y + vision.sightLevel + vision.maxSightLevel);
+                if (alertTagIndex >= 0) {
+                    GameObject alertObj = visionColl[i].transform.gameObject;
                     
-                    if (alertheight < 0f) {
-                        SawAlertTag(alertObj, alertTagIndex);
+                    // check if within vision angle
+                    if (Vector3.Angle(visionT.forward, (alertObj.transform.position - npcDir)) < (angle * 0.5f)) {
+                        // check height
+                        float alertheight = alertObj.transform.position.y - (centerPosition.y + visionT.position.y + vision.sightLevel + vision.maxSightLevel);
+                        
+                        if (alertheight < 0f) {
+                            SawAlertTag(alertObj, alertTagIndex);
+                        }
                     }
                 }
             }
@@ -1005,8 +1007,7 @@ public class BlazeAI : MonoBehaviour
             
             // check height
             float suspectHeight = hostile.transform.position.y - (centerPosition.y + visionT.position.y + vision.sightLevel + vision.maxSightLevel);
-            if (suspectHeight > 0f)
-            {
+            if (suspectHeight > 0f) {
                 continue;
             }
 
@@ -1179,6 +1180,26 @@ public class BlazeAI : MonoBehaviour
     // check if colliders of a gameobject are seen
     bool RayCastObjectColliders(GameObject go, int layersToHit, int minDetectionScore)
     {
+        RaycastHit rayHit;
+        Vector3 npcDir;
+        Vector3 colDir;
+
+        if (!vision.multiRayVision) {
+            Collider item = go.GetComponent<Collider>();
+            npcDir = transform.position + centerPosition;
+            colDir = item.ClosestPoint(item.bounds.center) - npcDir;
+
+            if (Physics.Raycast(npcDir, colDir, out rayHit, Mathf.Infinity, layersToHit)) {
+                if (item.transform.IsChildOf(rayHit.transform) || rayHit.transform.IsChildOf(transform)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
         Collider[] objColls = go.transform.GetComponentsInChildren<Collider>();
         int colSize = objColls.Length;
         int detectionScore = 0;
@@ -1187,10 +1208,9 @@ public class BlazeAI : MonoBehaviour
         // check if raycast can hit target colliders
         for (int i=0; i<colSize; i++) {
             Collider item = objColls[i];
-            RaycastHit rayHit;
 
-            Vector3 npcDir = transform.position + centerPosition;
-            Vector3 colDir = item.ClosestPoint(item.bounds.center) - npcDir;
+            npcDir = transform.position + centerPosition;
+            colDir = item.ClosestPoint(item.bounds.center) - npcDir;
 
             // start with center raycast, if caught nothing -> top left, if caught nothing -> top right
             if (Physics.Raycast(npcDir, colDir, out rayHit, Mathf.Infinity, layersToHit)) {

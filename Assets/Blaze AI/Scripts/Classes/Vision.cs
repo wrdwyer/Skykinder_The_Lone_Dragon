@@ -85,6 +85,9 @@ namespace BlazeAISpace
 
         [Header("VISION CYCLE"), Range(1, 30), Space(7), Tooltip("Vision systems normally run once every certain amount of frames to improve performance. Here you can set the amount of frames to pass before running vision on each cycle. The lower the number, the more accurate but expensive. The higher the number, the less accurate but better for performance. Remember the amount of frames passing is basically neglibile, so the accuracy isn't that big of a measure but performance will be better.")]
         public int pulseRate = 10;
+
+        [Header("USE MULTI-RAYS"), Space(7), Tooltip("Using multi-rays gives better accuracy. It fires multiple rays to many corners of all colliders of the potential target and decides from the results whether it's enough to be considered 'seen'. While using single ray (set this to off) fires a single raycast to the center of the main collider. For example if only the head of your player is exposed while the rest of the body is hidden behind a tree, the AI will not react. As the center of the player is hidden by the tree while the multi ray solution will fire multiple rays to the corners of the head and the center making it enough to be considered seen. Take note: multi rays may cause issues in VR so it's best to disable this if you're using VR.")]
+        public bool multiRayVision = true;
         
         [Header("DEBUG"), Space(7)]
         [Tooltip("Show the vision cone of normal state in scene view for easier debugging.")]
@@ -128,8 +131,7 @@ namespace BlazeAISpace
             if (transform == null) return;
 
 
-            if (ignore) 
-            {
+            if (ignore) {
                 if (showMaxSightLevel && maxSightLevel > 0f) {
                     Gizmos.color = new Color(139,0,139);
                     Gizmos.DrawCube(transform.position + new Vector3(0f, sightLevel + maxSightLevel, 0.5f), new Vector3(0.5f, 0.05f, 0.5f));
@@ -138,8 +140,7 @@ namespace BlazeAISpace
             }
 
 
-            if (angle >= 360f)
-            {   
+            if (angle >= 360f) {   
                 Gizmos.color = color;
                 Gizmos.DrawWireSphere(transform.position + new Vector3(0f, sightLevel + maxSightLevel, 0f), rayRange);
                 return;

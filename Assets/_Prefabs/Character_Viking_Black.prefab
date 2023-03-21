@@ -1,5 +1,163 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &22238013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22238014}
+  - component: {fileID: 22238016}
+  m_Layer: 0
+  m_Name: SightRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22238014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22238013}
+  m_LocalRotation: {x: 0.20589285, y: 0.0006286914, z: -0.0029888195, w: 0.97856975}
+  m_LocalPosition: {x: 0.00000007491324, y: 0.6080001, z: -0.15499933}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2341597229466658559}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 23.764, y: 0, z: -0.35}
+--- !u!108 &22238016
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22238013}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 0.54147387, g: 0.9811321, b: 0.59004074, a: 1}
+  m_Intensity: 9.48
+  m_Range: 4.69
+  m_SpotAngle: 58.22069
+  m_InnerSpotAngle: 12.657283
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &40248014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40248015}
+  - component: {fileID: 40248017}
+  - component: {fileID: 40248016}
+  m_Layer: 0
+  m_Name: CaptureSensor
+  m_TagString: Capture Sensor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40248015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40248014}
+  m_LocalRotation: {x: -0, y: -0, z: -6.1062266e-16, w: 1}
+  m_LocalPosition: {x: 0, y: 0.301, z: 0.303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2341597229466658559}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &40248017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40248014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4de088e089c164bb239be84964ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseColliders: 0
+  gizmoType: 1
+  debugSize: 0.07
+  DebugColor: {r: 1, g: 0, b: 0.02849722, a: 0.5296387}
+  DrawAxis: 0
+  AxisSize: 0.65
+--- !u!135 &40248016
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40248014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &724080852
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +188,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2341597229466658559}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 23.764, y: 0, z: -0.35}
 --- !u!108 &724080854
 Light:
@@ -122,7 +280,9 @@ Transform:
   m_LocalScale: {x: 1.1999999, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 22238014}
   - {fileID: 724080853}
+  - {fileID: 40248015}
   m_Father: {fileID: 2341597230945499292}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -13.54, y: 0, z: 0}
@@ -261,7 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2341597230945471858}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Toes_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,8 +903,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2341597230945584074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.041317433, y: 1.3927637, z: 0.046918076}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.047, y: 1.918, z: 0.024}
+  m_LocalScale: {x: 1.2895951, y: 1.3699466, z: 1.1679}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2341597230945405670}
@@ -1024,6 +1184,7 @@ GameObject:
   - component: {fileID: 2341597230938218717}
   - component: {fileID: 2341597230938218728}
   - component: {fileID: 393000728725354760}
+  - component: {fileID: 2055830902}
   m_Layer: 0
   m_Name: Character_Viking_Black
   m_TagString: Enemy
@@ -1117,7 +1278,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2341597230945585000}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -1223,13 +1384,13 @@ MonoBehaviour:
   showCenterPosition: 1
   groundLayers:
     serializedVersion: 2
-    m_Bits: 8192
-  audioScriptable: {fileID: 11400000, guid: 06e54b8716dee3c45a7e2e48238bf017, type: 2}
+    m_Bits: 8704
+  audioScriptable: {fileID: 0}
   agentAudio: {fileID: 2341597230938218714}
   waypoints:
     waypoints:
     - {x: -41.587994, y: -7.0364914, z: -63.68}
-    - {x: -41.587994, y: -7.0364914, z: -50.2}
+    - {x: -41.587994, y: -7.0364914, z: -49.85}
     waypointsRotation:
     - {x: 0, y: 0}
     - {x: 0, y: 0}
@@ -1250,13 +1411,12 @@ MonoBehaviour:
   vision:
     layersToDetect:
       serializedVersion: 2
-      m_Bits: 9437184
+      m_Bits: 1048576
     hostileAndAlertLayers:
       serializedVersion: 2
       m_Bits: 1048584
     hostileTags:
     - Player
-    - Animal
     alertTags:
     - alertTag: AlarmingObject
       behaviourScript: {fileID: 2341597230938218717}
@@ -1265,11 +1425,11 @@ MonoBehaviour:
       behaviourScript: {fileID: 2341597230938218717}
       fallBackTag: 
     visionDuringNormalState:
-      coneAngle: 66
+      coneAngle: 31
       sightRange: 5
     visionDuringAlertState:
-      coneAngle: 66
-      sightRange: 5
+      coneAngle: 75.91
+      sightRange: 4.53
     visionDuringAttackState:
       coneAngle: 66
       sightRange: 5
@@ -1277,6 +1437,7 @@ MonoBehaviour:
     maxSightLevel: 1.26
     head: {fileID: 0}
     pulseRate: 10
+    multiRayVision: 1
     showNormalVision: 1
     showAlertVision: 1
     showAttackVision: 1
@@ -1343,14 +1504,14 @@ MonoBehaviour:
   moveAnim: Walking
   animT: 0.25
   idleTime: {x: 3, y: 3}
-  playAudios: 1
+  playAudios: 0
   audioTime: {x: 10, y: 20}
   avoidFacingObstacles: 1
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   obstacleRayDistance: 1.62
-  obstacleRayOffset: {x: 0, y: 0.79, z: 0}
+  obstacleRayOffset: {x: 0, y: 0.75, z: 0}
   showObstacleRay: 1
 --- !u!114 &2341597230938218708
 MonoBehaviour:
@@ -1374,11 +1535,11 @@ MonoBehaviour:
   playAudios: 0
   audioTime: {x: 10, y: 20}
   returnToNormal: 1
-  timeToReturnNormal: 5
+  timeToReturnNormal: 3
   returningDuration: 2
   returningAnim: Looking Around
   returningAnimT: 0.25
-  playAudioOnReturn: 1
+  playAudioOnReturn: 0
   avoidFacingObstacles: 1
   obstacleLayers:
     serializedVersion: 2
@@ -1417,20 +1578,8 @@ MonoBehaviour:
     audioIndex: 0
   attackEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2341597230938218728}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  attackInIntervals: 1
+      m_Calls: []
+  attackInIntervals: 0
   attackInIntervalsTime: {x: 0.5, y: 3}
   playAttackIdleAudios: 0
   attackIdleAudiosTime: {x: 3, y: 10}
@@ -1443,7 +1592,7 @@ MonoBehaviour:
   showCallRadius: 0
   receiveCallFromOthers: 0
   moveBackwards: 0
-  moveBackwardsDistance: 4.5
+  moveBackwardsDistance: 0
   moveBackwardsSpeed: 3
   moveBackwardsAnim: 
   moveBackwardsAnimT: 0.25
@@ -1931,43 +2080,53 @@ MonoBehaviour:
           name: Disable Spotted
           isSystemEvent: 0
           isGlobal: 0
-        toState: State 1
+        toState: False
         linkStyle: 0
         linkConstraint: 0
         linkTarget: 0
         colorIndex: 0
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.GetComponent
         - HutongGames.PlayMaker.Actions.GetProperty
-        - HutongGames.PlayMaker.Actions.BoolTest
+        - HutongGames.PlayMaker.Actions.EnumSwitch
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000002000000
-        actionHashCodes: 5ac85204a4c8bf00
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000300000005000000
+        actionHashCodes: 04d814025ac852044166d801
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
         fsmPropertyParams:
         - TargetObject:
-            useVariable: 1
-            name: BlazeAI
+            useVariable: 0
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
-            typeName: BlazeAI
-            value: {fileID: 0}
+            typeName: UnityEngine.Object
+            value: {fileID: 2341597230938218710}
           TargetTypeName: BlazeAI
-          PropertyName: isAttacking
+          PropertyName: state
           BoolParameter:
-            useVariable: 1
-            name: Attacking?
+            useVariable: 0
+            name: 
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -2039,7 +2198,7 @@ MonoBehaviour:
             tooltip: 
             showInInspector: 0
             networkSync: 0
-            typeName: System.Boolean
+            typeName: BlazeAI+State
             value: {fileID: 0}
           MaterialParameter:
             useVariable: 0
@@ -2065,12 +2224,12 @@ MonoBehaviour:
             networkSync: 0
             value: {r: 0, g: 0, b: 0, a: 1}
           EnumParameter:
-            useVariable: 0
-            name: 
+            useVariable: 1
+            name: CurrentState
             tooltip: 
             showInInspector: 0
             networkSync: 0
-            enumName: HutongGames.PlayMaker.None
+            enumName: BlazeAI+State
             intValue: 0
           ArrayParameter:
             useVariable: 0
@@ -2079,7 +2238,7 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             type: -1
-            objectTypeName: UnityEngine.Object
+            objectTypeName: 
             floatValues: []
             intValues: 
             boolValues: 
@@ -2089,43 +2248,74 @@ MonoBehaviour:
           setProperty: 0
         layoutOptionParams: []
         fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        fsmArrayParams: []
-        fsmEnumParams: []
-        fsmFloatParams: []
-        fsmIntParams: []
-        fsmBoolParams:
+        fsmObjectParams:
         - useVariable: 1
-          name: Attacking?
+          name: BlazeAI
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0
+          typeName: BlazeAI
+          value: {fileID: 0}
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams:
+        - useVariable: 1
+          name: CurrentState
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          enumName: BlazeAI+State
+          intValue: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          enumName: BlazeAI+State
+          intValue: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          enumName: BlazeAI+State
+          intValue: 2
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - Enable Spotted
         - Disable Spotted
-        byteData: 0101
-        arrayParamSizes: 
-        arrayParamTypes: []
+        - Enable Spotted
+        byteData: 010101
+        arrayParamSizes: 0200000002000000
+        arrayParamTypes:
+        - HutongGames.PlayMaker.FsmEnum
+        - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 240000000100000011000000170000001700000001000000
+        paramDataType: 14000000180000000100000024000000010000002a0000000c0000002a0000002a0000000c000000170000001700000001000000
         paramName:
+        - gameObject
+        - storeComponent
+        - everyFrame
         - targetProperty
         - everyFrame
-        - boolVariable
-        - isTrue
-        - isFalse
+        - enumVariable
+        - compareTo
+        - 
+        - 
+        - sendEvent
+        - 
+        - 
         - everyFrame
-        paramDataPos: 000000000000000000000000000000000100000001000000
-        paramByteDataSize: 000000000100000000000000000000000000000001000000
-    - name: State 1
+        paramDataPos: 00000000000000000000000000000000010000000000000000000000010000000200000001000000000000000100000002000000
+        paramByteDataSize: 00000000000000000100000000000000010000000000000000000000000000000000000000000000000000000000000001000000
+    - name: False
       description: 
       colorIndex: 0
       position:
@@ -2150,16 +2340,16 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetBoolValue
-        - HutongGames.PlayMaker.Actions.NextFrameEvent
         - HutongGames.PlayMaker.Actions.SetProperty
+        - HutongGames.PlayMaker.Actions.NextFrameEvent
         customNames:
         - 
         - 
         - 
         actionEnabled: 010101
         actionIsOpen: 010101
-        actionStartIndex: 000000000300000004000000
-        actionHashCodes: 27fbe103886116045ac85204
+        actionStartIndex: 000000000300000005000000
+        actionHashCodes: 27fbe1035ac8520488611604
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -2283,7 +2473,7 @@ MonoBehaviour:
             tooltip: 
             showInInspector: 0
             networkSync: 0
-            enumName: 
+            enumName: HutongGames.PlayMaker.None
             intValue: 0
           ArrayParameter:
             useVariable: 0
@@ -2292,7 +2482,7 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             type: -1
-            objectTypeName: 
+            objectTypeName: UnityEngine.Object
             floatValues: []
             intValues: 
             boolValues: 
@@ -2333,16 +2523,16 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 110000001100000001000000170000002400000001000000
+        paramDataType: 110000001100000001000000240000000100000017000000
         paramName:
         - boolVariable
         - boolValue
         - everyFrame
-        - sendEvent
         - targetProperty
         - everyFrame
-        paramDataPos: 000000000100000000000000000000000000000001000000
-        paramByteDataSize: 000000000000000001000000000000000000000001000000
+        - sendEvent
+        paramDataPos: 000000000100000000000000000000000100000000000000
+        paramByteDataSize: 000000000000000001000000000000000100000000000000
     - name: Get BlazeAI Component
       description: 
       colorIndex: 0
@@ -2366,25 +2556,15 @@ MonoBehaviour:
         linkTarget: 0
         colorIndex: 0
       actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.GetComponent
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 04d81402
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
         unityObjectParams: []
         fsmGameObjectParams: []
-        fsmOwnerDefaultParams:
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
+        fsmOwnerDefaultParams: []
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
@@ -2392,14 +2572,7 @@ MonoBehaviour:
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams: []
-        fsmObjectParams:
-        - useVariable: 1
-          name: BlazeAI
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          typeName: BlazeAI
-          value: {fileID: 0}
+        fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
@@ -2412,18 +2585,15 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 00
+        byteData: 
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001800000001000000
-        paramName:
-        - gameObject
-        - storeComponent
-        - everyFrame
-        paramDataPos: 000000000000000000000000
-        paramByteDataSize: 000000000000000001000000
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
     events:
     - name: Enable Spotted
       isSystemEvent: 0
@@ -2440,7 +2610,7 @@ MonoBehaviour:
       intVariables: []
       boolVariables:
       - useVariable: 1
-        name: Attacking?
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -2460,10 +2630,31 @@ MonoBehaviour:
         networkSync: 0
         typeName: BlazeAI
         value: {fileID: 0}
+      - useVariable: 1
+        name: State
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        typeName: BlazeAI
+        value: {fileID: 0}
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        typeName: 
+        value: {fileID: 0}
       materialVariables: []
       textureVariables: []
       arrayVariables: []
       enumVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        enumName: BlazeAI+State
+        intValue: 0
       - useVariable: 1
         name: CurrentState
         tooltip: 
@@ -2473,7 +2664,7 @@ MonoBehaviour:
         intValue: 0
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000
+      variableCategoryIDs: 000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -2895,6 +3086,19 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
+--- !u!114 &2055830902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341597230945585000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d95a7ca5d39b2a4db984a6dcdf4fcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
 --- !u!1 &2341597230945586530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,9 +3645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2341597230945478780}
-  - component: {fileID: 2341597230945736927}
-  - component: {fileID: 2341597230945736926}
-  - component: {fileID: 2341597230945736925}
+  - component: {fileID: 848485162}
   m_Layer: 0
   m_Name: Hand_R
   m_TagString: Untagged
@@ -3469,20 +3671,7 @@ Transform:
   m_Father: {fileID: 2341597230945410536}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2341597230945736927
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2341597230945736924}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0.09, y: 0, z: 0}
---- !u!114 &2341597230945736926
+--- !u!114 &848485162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3491,107 +3680,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 2341597230945736924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5917cf7ececae694e9247e0e938e7442, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 0}
-  flagAttack: {fileID: 0}
---- !u!82 &2341597230945736925
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2341597230945736924}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3310ab82001bfd24eacbd0706f4c1dc2, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &2341597230945737280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4406,7 +4515,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2341597230945497358}
-  m_Layer: 0
+  - component: {fileID: 8641818220331100922}
+  m_Layer: 23
   m_Name: Ball_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4429,6 +4539,19 @@ Transform:
   m_Father: {fileID: 2341597230945404518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8641818220331100922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341597230945767232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d95a7ca5d39b2a4db984a6dcdf4fcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: '"event:/Guards/Footsteps"'
 --- !u!1 &2341597230945768590
 GameObject:
   m_ObjectHideFlags: 0
@@ -4518,8 +4641,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2341597230945773090}
   m_LocalRotation: {x: 0.00020466525, y: 0.0049530016, z: -0.04128572, w: 0.9991351}
-  m_LocalPosition: {x: -0.043887664, y: 0.04539162, z: -0.012525286}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.106, y: 0.058, z: -0.012}
+  m_LocalScale: {x: 1.289595, y: 1.369947, z: 1.1679}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2341597230945479106}
@@ -4616,9 +4739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2341597230945455828}
-  - component: {fileID: 2341597230945777057}
-  - component: {fileID: 2341597230945777056}
-  - component: {fileID: 2341597230945777071}
+  - component: {fileID: 5004729405209587209}
   m_Layer: 0
   m_Name: Ball_R
   m_TagString: Untagged
@@ -4642,7 +4763,7 @@ Transform:
   m_Father: {fileID: 2341597230945484644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2341597230945777057
+--- !u!114 &5004729405209587209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4651,120 +4772,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2341597230945777070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5917cf7ececae694e9247e0e938e7442, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d95a7ca5d39b2a4db984a6dcdf4fcba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSound: {fileID: 0}
-  flagAttack: {fileID: 0}
---- !u!82 &2341597230945777056
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2341597230945777070}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3310ab82001bfd24eacbd0706f4c1dc2, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!135 &2341597230945777071
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2341597230945777070}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0.05, z: 0}
+  path: '"event:/Guards/Footsteps"'
 --- !u!1 &2341597230945780222
 GameObject:
   m_ObjectHideFlags: 0

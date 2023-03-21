@@ -72,6 +72,7 @@ namespace BlazeAISpace
         void Start() 
         {
             blaze = GetComponent<BlazeAI>();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Alert",GetComponent<Transform>().position);
             
 
             // cache the idle anim for quick access & use in other systems

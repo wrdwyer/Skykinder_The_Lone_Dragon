@@ -18,6 +18,11 @@ TagManager:
   - ClingPoint
   - Damagable
   - AlarmingObject
+  - Capture Sensor
+  - RedEnemy
+  - BlueEnemy
+  - 'Material: Rock'
+  - 'Material: Slab'
   layers:
   - Default
   - TransparentFX

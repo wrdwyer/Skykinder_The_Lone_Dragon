@@ -1,5 +1,104 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8960323114458839262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enviroment/TourchFire
+  m_EditorClassIdentifier: 
+  Path: event:/Enviroment/TourchFire
+  Guid:
+    Data1: 92727171
+    Data2: 1087982107
+    Data3: 762540221
+    Data4: 1184718641
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20000
+--- !u!114 &-8222943988658061890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/SkyKender/Master
+  lastModified: 638150197733682810
+  FileSizes:
+  - Name: Desktop
+    Value: 394112
+  Exists: 1
+--- !u!114 &-4321607451990840947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FootStep/GroundType
+  m_EditorClassIdentifier: 
+  Name: GroundType
+  StudioPath: 
+  Min: 1
+  Max: 2
+  Default: 1
+  ID:
+    data1: 2096923153
+    data2: 83734661
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3824998675977082190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SkyKender/FootStep
+  m_EditorClassIdentifier: 
+  Path: event:/SkyKender/FootStep
+  Guid:
+    Data1: -1446195685
+    Data2: 1256220768
+    Data3: -1975448131
+    Data4: 1744862209
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4321607451990840947}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 840
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +111,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: 6568465905494243244}
+  - {fileID: -8222943988658061890}
+  EditorEvents:
+  - {fileID: -3824998675977082190}
+  - {fileID: 345390071772631162}
+  - {fileID: -8960323114458839262}
+  - {fileID: 959659119166681126}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  cacheTime: 0
+  MasterBanks:
+  - {fileID: -8222943988658061890}
+  StringsBanks:
+  - {fileID: 6568465905494243244}
+  cacheTime: 638150197733692811
   cacheVersion: 131601
+--- !u!114 &345390071772631162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Guards/Alert
+  m_EditorClassIdentifier: 
+  Path: event:/Guards/Alert
+  Guid:
+    Data1: -1708319147
+    Data2: 1077695457
+    Data3: 1017196702
+    Data4: 1818861932
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4202
+--- !u!114 &959659119166681126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Guards/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Guards/Footsteps
+  Guid:
+    Data1: 349374716
+    Data2: 1144816999
+    Data3: -55906894
+    Data4: 1822030307
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 501
+--- !u!114 &6568465905494243244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/SkyKender/Master.strings
+  lastModified: 638150197733692811
+  FileSizes:
+  - Name: Desktop
+    Value: 988
+  Exists: 1
