@@ -18,6 +18,7 @@ public class BlazeAIDistraction : MonoBehaviour {
     void Start()
     {
         if (distractOnAwake) TriggerDistraction();
+       
     }
 
 
@@ -25,6 +26,7 @@ public class BlazeAIDistraction : MonoBehaviour {
     public void TriggerDistraction() {
 
         // get the surrounding agents
+         Debug.Log("Distracted!!");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, distractionRadius, agentLayers);
         List<BlazeAI> enemiesList = new List<BlazeAI>();
 

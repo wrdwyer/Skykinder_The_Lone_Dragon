@@ -212,6 +212,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 6208188259464481513}
     m_Position: {x: 510, y: 110, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -5546823375664732460}
+    m_Position: {x: 510, y: 160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -244,7 +247,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: bd50516493c5fd94cbe01dcc8f74fd44,
     type: 3}
-  m_Tag: AttackAxe
+  m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -540,9 +543,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2990444413597696898}
     m_Position: {x: 510, y: 70, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -5546823375664732460}
-    m_Position: {x: 290, y: 330, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 1727901269791791499}

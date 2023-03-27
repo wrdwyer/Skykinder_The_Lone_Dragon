@@ -123,7 +123,7 @@ namespace MalbersAnimations.Controller
 
             OnEggCrack.Invoke();
 
-            StartCoroutine(EggDisapear(removeShells));
+            //StartCoroutine(EggDisapear(removeShells));
         }
 
         void EnableAnimalScript()

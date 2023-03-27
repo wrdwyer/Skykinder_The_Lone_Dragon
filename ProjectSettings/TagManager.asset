@@ -23,6 +23,7 @@ TagManager:
   - BlueEnemy
   - 'Material: Rock'
   - 'Material: Slab'
+  - FeeLook
   layers:
   - Default
   - TransparentFX
