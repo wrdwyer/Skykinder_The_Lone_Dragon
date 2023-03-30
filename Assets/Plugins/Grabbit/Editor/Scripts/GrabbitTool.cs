@@ -6,6 +6,10 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEditor.EditorTools;
+#if UNITY_2021_OR_NEWER
+#else
+using UnityEditor.Experimental.SceneManagement;
+#endif
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;

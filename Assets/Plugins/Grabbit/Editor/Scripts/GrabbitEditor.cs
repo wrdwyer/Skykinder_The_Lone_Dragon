@@ -208,7 +208,7 @@ namespace Grabbit
             {
                 if (instance.CurrentTool)
                 {
-                   // instance.CurrentTool.OnEnable();
+                    // instance.CurrentTool.OnEnable();
                     instance.Repaint();
                 }
                 else
@@ -254,7 +254,6 @@ namespace Grabbit
         {
             StartGrabbitOnKeyDown(GrabbitMode.POINT);
         }
-
 
         private static void StartGrabbitOnKeyDown(GrabbitMode mode = GrabbitMode.PLACE)
         {
@@ -459,6 +458,12 @@ namespace Grabbit
             {
                 InactiveGrabbitGUI();
                 return;
+            }
+
+
+            if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Escape)
+            {
+                ExitTool();
             }
 
             HeaderGUI();
@@ -1140,8 +1145,8 @@ namespace Grabbit
         private void ConfirmDeletion()
         {
             if (EditorUtility.DisplayDialog("Clearing the colliders",
-                "Are you sure you want to delete the generated colliders? \n They will need to be generated again for Grabbit's Dynamic Concave mode to be used",
-                "Ok", "Cancel"))
+                    "Are you sure you want to delete the generated colliders? \n They will need to be generated again for Grabbit's Dynamic Concave mode to be used",
+                    "Ok", "Cancel"))
                 ColliderMeshContainer.ClearColliders();
         }
 

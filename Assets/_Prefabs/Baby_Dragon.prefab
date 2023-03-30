@@ -489,16 +489,16 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: FireBall
-    startState: State 1
+    startState: Check Fireball Count
     states:
-    - name: State 1
+    - name: Firebal Launch
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 50
-        y: 100
-        width: 100
+        x: 70
+        y: 198
+        width: 115
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -508,13 +508,15 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetProperty
         - HutongGames.PlayMaker.Actions.CallMethod
+        - HutongGames.PlayMaker.Actions.IntSubtract
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000002000000
-        actionHashCodes: 5ac85204ca51e900
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 000001
+        actionStartIndex: 000000000200000009000000
+        actionHashCodes: 5ac85204ca51e90031e5da02
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -723,7 +725,19 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
-        fsmIntParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: FireBallsCollected
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -731,13 +745,13 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams: []
-        byteData: 000000
+        byteData: 0000000000
         arrayParamSizes: 01000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmVar
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 240000000100000018000000120000000c00000027000000270000000100000001000000
+        paramDataType: 240000000100000018000000120000000c0000002700000027000000010000000100000010000000100000000100000001000000
         paramName:
         - targetProperty
         - everyFrame
@@ -748,9 +762,100 @@ MonoBehaviour:
         - storeResult
         - everyFrame
         - manualUI
-        paramDataPos: 000000000000000000000000000000000000000000000000010000000100000002000000
-        paramByteDataSize: 000000000100000000000000000000000000000000000000000000000100000001000000
-    events: []
+        - intVariable
+        - subtract
+        - everyFrame
+        - perSecond
+        paramDataPos: 00000000000000000000000000000000000000000000000001000000010000000200000000000000010000000300000004000000
+        paramByteDataSize: 00000000010000000000000000000000000000000000000000000000010000000100000000000000000000000100000001000000
+    - name: Check Fireball Count
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 54
+        y: 108
+        width: 151
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: Launch Fireball
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Firebal Launch
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.IntCompare
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 09faa102
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: FireBallsCollected
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - 
+        - 
+        - Launch Fireball
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 100000001000000017000000170000001700000001000000
+        paramName:
+        - integer1
+        - integer2
+        - equal
+        - lessThan
+        - greaterThan
+        - everyFrame
+        paramDataPos: 000000000100000000000000010000000200000000000000
+        paramByteDataSize: 000000000000000000000000000000000000000001000000
+    events:
+    - name: Launch Fireball
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
@@ -21353,7 +21458,7 @@ MonoBehaviour:
   ShowStateInInspector: 1
   Editor_Tabs1: 4
   Mode_Tabs1: 1
-  Editor_Tabs2: 0
+  Editor_Tabs2: 2
   Ability_Tabs: 4
   Editor_EventTabs: 0
   showPivots: 1
@@ -25269,7 +25374,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     EditorTabs: 0
-  - active: 1
+  - active: 0
     ID: {fileID: 11400000, guid: d6b3e636d59a6c547a2cad40b69f4432, type: 2}
     value:
       UseConstant: 1
@@ -25378,7 +25483,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     EditorTabs: 0
-  - active: 1
+  - active: 0
     ID: {fileID: 11400000, guid: a8e3ee853ab381e46bc90f4d5e5a9800, type: 2}
     value:
       UseConstant: 1
@@ -25500,7 +25605,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     EditorTabs: 0
-  - active: 1
+  - active: 0
     ID: {fileID: 11400000, guid: 7370bfe8af849194399411978f101567, type: 2}
     value:
       UseConstant: 1
@@ -29905,7 +30010,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3649945008796133614}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1384774831, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
   m_Name: 
@@ -33391,7 +33496,7 @@ GameObject:
   - component: {fileID: 5254426822967859557}
   m_Layer: 20
   m_Name: CheckCaptured
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

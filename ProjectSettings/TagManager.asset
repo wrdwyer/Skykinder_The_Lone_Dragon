@@ -24,6 +24,7 @@ TagManager:
   - 'Material: Rock'
   - 'Material: Slab'
   - FeeLook
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
