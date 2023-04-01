@@ -69,10 +69,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/SkyKender/Master
-  lastModified: 638152439288760345
+  lastModified: 638159732052684526
   FileSizes:
   - Name: Desktop
-    Value: 697248
+    Value: 2367744
   Exists: 1
 --- !u!114 &-7677622401519968814
 MonoBehaviour:
@@ -180,6 +180,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 840
+--- !u!114 &-1953335253963523490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Conveyor Belt
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Conveyor Belt
+  Guid:
+    Data1: 513339223
+    Data2: 1135110133
+    Data3: -605643594
+    Data4: -244307911
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10080
+--- !u!114 &-1380113025861006635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/EggCrack
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/EggCrack
+  Guid:
+    Data1: 1265503834
+    Data2: 1088255274
+    Data3: 1771672493
+    Data4: 148034439
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 830
 --- !u!114 &-1204158731984671412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,12 +316,18 @@ MonoBehaviour:
   - {fileID: -1204158731984671412}
   - {fileID: -7677622401519968814}
   - {fileID: -6154927897695612174}
+  - {fileID: -1380113025861006635}
+  - {fileID: 4454878938968940761}
+  - {fileID: 5231006012651949577}
+  - {fileID: 7531819523822045867}
+  - {fileID: -1953335253963523490}
+  - {fileID: 7776550994994232965}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8222943988658061890}
   StringsBanks:
   - {fileID: 6568465905494243244}
-  cacheTime: 638152439288795520
+  cacheTime: 638159732052714530
   cacheVersion: 131601
 --- !u!114 &345390071772631162
 MonoBehaviour:
@@ -350,6 +410,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 368
+--- !u!114 &4454878938968940761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enviroment/Cave
+  m_EditorClassIdentifier: 
+  Path: event:/Enviroment/Cave
+  Guid:
+    Data1: 1219547203
+    Data2: 1232888351
+    Data3: 1424364688
+    Data4: 1228195770
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 123428
+--- !u!114 &5231006012651949577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Guards/AttackAxeEvent
+  m_EditorClassIdentifier: 
+  Path: event:/Guards/AttackAxeEvent
+  Guid:
+    Data1: -199775072
+    Data2: 1234906538
+    Data3: -273373041
+    Data4: -482982198
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &6568465905494243244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,10 +479,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/SkyKender/Master.strings
-  lastModified: 638152439288795520
+  lastModified: 638159732052714530
   FileSizes:
   - Name: Desktop
-    Value: 1370
+    Value: 1648
   Exists: 1
 --- !u!114 &6929967613153769163
 MonoBehaviour:
@@ -397,6 +511,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 9850
+--- !u!114 &7531819523822045867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SkyKender/Captured
+  m_EditorClassIdentifier: 
+  Path: event:/SkyKender/Captured
+  Guid:
+    Data1: -1178488323
+    Data2: 1189644718
+    Data3: 474339742
+    Data4: -1355560324
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1364
+--- !u!114 &7776550994994232965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Attach Cog
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Attach Cog
+  Guid:
+    Data1: -1783171793
+    Data2: 1163594798
+    Data3: 1367166592
+    Data4: 910124293
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 260
 --- !u!114 &8253055341168827768
 MonoBehaviour:
   m_ObjectHideFlags: 0

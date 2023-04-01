@@ -6,8 +6,15 @@ public class GuardFootsteps_FMOD : MonoBehaviour
 {
     public string path;
 
-
     public void PlayFootstepsEvent(string path)
+    {
+        FMOD.Studio.EventInstance Footsteps = FMODUnity.RuntimeManager.CreateInstance(path);
+        Footsteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        Footsteps.start();
+        Footsteps.release();
+    }
+
+    public void AttackAxeEvent(string path)
     {
         FMOD.Studio.EventInstance Footsteps = FMODUnity.RuntimeManager.CreateInstance(path);
         Footsteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));

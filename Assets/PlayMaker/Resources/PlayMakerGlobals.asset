@@ -27,13 +27,13 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 1
     - useVariable: 1
       name: Hidden
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 1
     - useVariable: 1
       name: YellowKey
       tooltip: 
@@ -57,14 +57,14 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 1
     stringVariables:
     - useVariable: 1
       name: Current Checkpoint
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: Start
+      value: Checkpoint3
     vector2Variables: []
     vector3Variables: []
     colorVariables: []
@@ -90,3 +90,5 @@ MonoBehaviour:
   - OpenBlueDoor
   - Spotted
   - BridgeOpen1
+  - CINEMACHINE / ON CAMERA ACTIVATED
+  - CINEMACHINE / ON CAMERA CUT
