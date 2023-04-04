@@ -69,10 +69,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/SkyKender/Master
-  lastModified: 638159732052684526
+  lastModified: 638162275183783922
   FileSizes:
   - Name: Desktop
-    Value: 2367744
+    Value: 2578912
   Exists: 1
 --- !u!114 &-7677622401519968814
 MonoBehaviour:
@@ -101,6 +101,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1246
+--- !u!114 &-7516806466420104478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/MenuClick
+  m_EditorClassIdentifier: 
+  Path: event:/UI/MenuClick
+  Guid:
+    Data1: -1497624454
+    Data2: 1143021531
+    Data3: 918374567
+    Data4: -1959535324
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 200
+--- !u!114 &-6777563354872558419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Barrel Explode
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Barrel Explode
+  Guid:
+    Data1: -708915566
+    Data2: 1203549552
+    Data3: -1908465234
+    Data4: -1376148370
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4312
 --- !u!114 &-6154927897695612174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +182,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1722
+--- !u!114 &-5561811961209036360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/DragonScaleHumm
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/DragonScaleHumm
+  Guid:
+    Data1: 1199631366
+    Data2: 1075858783
+    Data3: 440259003
+    Data4: 664028409
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
 --- !u!114 &-4321607451990840947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,12 +403,18 @@ MonoBehaviour:
   - {fileID: 7531819523822045867}
   - {fileID: -1953335253963523490}
   - {fileID: 7776550994994232965}
+  - {fileID: -5561811961209036360}
+  - {fileID: 1357367266699988459}
+  - {fileID: -6777563354872558419}
+  - {fileID: -7516806466420104478}
+  - {fileID: 7417214581660241458}
+  - {fileID: 993918149633297779}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8222943988658061890}
   StringsBanks:
   - {fileID: 6568465905494243244}
-  cacheTime: 638159732052714530
+  cacheTime: 638162275183843961
   cacheVersion: 131601
 --- !u!114 &345390071772631162
 MonoBehaviour:
@@ -383,6 +470,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 501
+--- !u!114 &993918149633297779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SkyKender/DragonInCage
+  m_EditorClassIdentifier: 
+  Path: event:/SkyKender/DragonInCage
+  Guid:
+    Data1: 761831496
+    Data2: 1110571013
+    Data3: -1366515545
+    Data4: 1364267234
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1672
+--- !u!114 &1357367266699988459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objects/Collected
+  m_EditorClassIdentifier: 
+  Path: event:/Objects/Collected
+  Guid:
+    Data1: -531094243
+    Data2: 1154588652
+    Data3: -600317766
+    Data4: 492360041
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 420
 --- !u!114 &1761756729221627963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,10 +620,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/SkyKender/Master.strings
-  lastModified: 638159732052714530
+  lastModified: 638162275183843961
   FileSizes:
   - Name: Desktop
-    Value: 1648
+    Value: 1922
   Exists: 1
 --- !u!114 &6929967613153769163
 MonoBehaviour:
@@ -511,6 +652,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 9850
+--- !u!114 &7417214581660241458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/MenuMove
+  m_EditorClassIdentifier: 
+  Path: event:/UI/MenuMove
+  Guid:
+    Data1: 666000354
+    Data2: 1118788738
+    Data3: 638440630
+    Data4: -1349350189
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 321
 --- !u!114 &7531819523822045867
 MonoBehaviour:
   m_ObjectHideFlags: 0

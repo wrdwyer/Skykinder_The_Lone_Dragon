@@ -9599,6 +9599,7 @@ GameObject:
   - component: {fileID: 4745610117586190958}
   - component: {fileID: 3256837319469941229}
   - component: {fileID: 1178912295121182542}
+  - component: {fileID: 3800037318842507338}
   m_Layer: 1
   m_Name: FireBall_Mod
   m_TagString: Fire
@@ -15161,7 +15162,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -15181,7 +15182,7 @@ MonoBehaviour:
     handleTriggerEnter: 0
     handleTriggerExit: 0
     handleTriggerStay: 0
-    handleCollisionEnter: 0
+    handleCollisionEnter: 1
     handleCollisionExit: 0
     handleCollisionStay: 0
     handleParticleCollision: 0
@@ -15197,7 +15198,7 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &3256837319469941229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15226,6 +15227,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: event:/SkyKender/Fireball
+--- !u!114 &3800037318842507338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757608949838354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 845409985, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs:
+  - {fileID: 4745610117586190958}
 --- !u!1 &8280805684226685365
 GameObject:
   m_ObjectHideFlags: 1
