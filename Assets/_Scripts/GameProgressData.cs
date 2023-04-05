@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameProgressData : ScriptableObject
 {
     public string CurrentCheckpoint;
+    public float checkPointTime;
     public int totalScore;
     public int timesSpotted;
     public float timeLevelCompleted;
