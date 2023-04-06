@@ -25,6 +25,7 @@ TagManager:
   - 'Material: Slab'
   - FeeLook
   - Checkpoint
+  - HighlightTarget
   layers:
   - Default
   - TransparentFX

@@ -112,9 +112,15 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: Start
+      value: Checkpoint2
     vector2Variables: []
-    vector3Variables: []
+    vector3Variables:
+    - useVariable: 1
+      name: MainCamera
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: {x: 0, y: 0, z: 0}
     colorVariables: []
     rectVariables: []
     quaternionVariables: []
@@ -133,7 +139,7 @@ MonoBehaviour:
     enumVariables: []
     categories:
     - 
-    variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    variableCategoryIDs: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   events:
   - OpenBlueDoor
   - Spotted

@@ -192,8 +192,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 58
-        y: 119
+        x: 50
+        y: 99
         width: 100
         height: 16
       isBreakpoint: 0
@@ -239,14 +239,14 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
-    - name: Set Hidden to True
+    - name: Hidden
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 227
-        y: 112
-        width: 140
+        x: 329
+        y: 98
+        width: 118
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -308,14 +308,14 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 000000000100000000000000
         paramByteDataSize: 000000000000000001000000
-    - name: Set Hidden to False
+    - name: Visable
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 427
-        y: 111
-        width: 144
+        x: 496
+        y: 98
+        width: 111
         height: 16
       isBreakpoint: 0
       isSequence: 0
@@ -387,12 +387,15 @@ MonoBehaviour:
     - name: TRIGGER EXIT
       isSystemEvent: 1
       isGlobal: 0
+    - name: TRIGGER STAY
+      isSystemEvent: 1
+      isGlobal: 0
     globalTransitions:
     - fsmEvent:
-        name: TRIGGER ENTER
+        name: TRIGGER STAY
         isSystemEvent: 1
         isGlobal: 0
-      toState: Set Hidden to True
+      toState: Hidden
       linkStyle: 0
       linkConstraint: 0
       linkTarget: 0
@@ -401,7 +404,7 @@ MonoBehaviour:
         name: TRIGGER EXIT
         isSystemEvent: 1
         isGlobal: 0
-      toState: Set Hidden to False
+      toState: Visable
       linkStyle: 0
       linkConstraint: 0
       linkTarget: 0
@@ -435,7 +438,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
