@@ -112,7 +112,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: Checkpoint2
+      value: Start
     vector2Variables: []
     vector3Variables:
     - useVariable: 1
@@ -151,3 +151,5 @@ MonoBehaviour:
   - Load Level
   - Reset Progress
   - New Game
+  - DragonCaptured
+  - BarrellExplode

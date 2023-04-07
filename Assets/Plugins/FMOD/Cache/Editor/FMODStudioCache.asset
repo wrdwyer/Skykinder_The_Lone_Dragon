@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/SkyKender/Master
-  lastModified: 638164019958011716
+  lastModified: 638164695019241871
   FileSizes:
   - Name: Desktop
     Value: 2579936
@@ -414,7 +414,7 @@ MonoBehaviour:
   - {fileID: -8222943988658061890}
   StringsBanks:
   - {fileID: 6568465905494243244}
-  cacheTime: 638164019958061724
+  cacheTime: 638164695019281874
   cacheVersion: 131601
 --- !u!114 &345390071772631162
 MonoBehaviour:
@@ -620,7 +620,7 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/SkyKender/Master.strings
-  lastModified: 638164019958061724
+  lastModified: 638164695019281874
   FileSizes:
   - Name: Desktop
     Value: 1922
