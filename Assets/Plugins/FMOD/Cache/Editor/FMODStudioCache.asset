@@ -54,6 +54,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2925
+--- !u!114 &-8562976216996166756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enviroment/DiscoveryEVENT
+  m_EditorClassIdentifier: 
+  Path: event:/Enviroment/DiscoveryEVENT
+  Guid:
+    Data1: -1125560431
+    Data2: 1229896241
+    Data3: -151995763
+    Data4: -1693382500
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12000
 --- !u!114 &-8222943988658061890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,10 +96,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/SkyKender/Master
-  lastModified: 638164695019241871
+  lastModified: 638169290859152739
   FileSizes:
   - Name: Desktop
-    Value: 2579936
+    Value: 3135840
   Exists: 1
 --- !u!114 &-7677622401519968814
 MonoBehaviour:
@@ -155,6 +182,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4312
+--- !u!114 &-6578165336437601410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Guards/Surprised
+  m_EditorClassIdentifier: 
+  Path: event:/Guards/Surprised
+  Guid:
+    Data1: -1983498153
+    Data2: 1265910859
+    Data3: 1298070663
+    Data4: -903258324
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1648
 --- !u!114 &-6154927897695612174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +417,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -8222943988658061890}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -409,12 +463,15 @@ MonoBehaviour:
   - {fileID: -7516806466420104478}
   - {fileID: 7417214581660241458}
   - {fileID: 993918149633297779}
+  - {fileID: -6578165336437601410}
+  - {fileID: 2136068323713517465}
+  - {fileID: -8562976216996166756}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8222943988658061890}
   StringsBanks:
   - {fileID: 6568465905494243244}
-  cacheTime: 638164695019281874
+  cacheTime: 638169290859202773
   cacheVersion: 131601
 --- !u!114 &345390071772631162
 MonoBehaviour:
@@ -551,6 +608,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 368
+--- !u!114 &2136068323713517465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SkyKender/Breathing
+  m_EditorClassIdentifier: 
+  Path: event:/SkyKender/Breathing
+  Guid:
+    Data1: 837691319
+    Data2: 1190933990
+    Data3: 741869747
+    Data4: 373869904
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 19000
 --- !u!114 &4454878938968940761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +683,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -8222943988658061890}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -620,10 +704,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/SkyKender/Master.strings
-  lastModified: 638164695019281874
+  lastModified: 638169290859202773
   FileSizes:
   - Name: Desktop
-    Value: 1922
+    Value: 2048
   Exists: 1
 --- !u!114 &6929967613153769163
 MonoBehaviour:
@@ -700,7 +784,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -8222943988658061890}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -727,7 +811,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -8222943988658061890}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

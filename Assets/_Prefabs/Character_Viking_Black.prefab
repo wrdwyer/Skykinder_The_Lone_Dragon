@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22238014}
   - component: {fileID: 22238016}
+  - component: {fileID: 3376852874060724583}
   m_Layer: 23
   m_Name: SightRange
   m_TagString: Untagged
@@ -43,9 +44,9 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.54147387, g: 0.9811321, b: 0.59004074, a: 1}
-  m_Intensity: 9.48
-  m_Range: 4.69
+  m_Color: {r: 0.02616591, g: 0.7924528, b: 0.10826813, a: 1}
+  m_Intensity: 13.54
+  m_Range: 8.2
   m_SpotAngle: 58.22069
   m_InnerSpotAngle: 12.657283
   m_CookieSize: 10
@@ -94,6 +95,39 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &3376852874060724583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22238013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  useScattering: 0
+  overrideScattering: 1
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 1, g: 1, b: 1, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1 &40248014
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +187,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40248014}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.07
@@ -174,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &724080853
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,11 +1511,11 @@ MonoBehaviour:
       behaviourScript: {fileID: 2341597230938218717}
       fallBackTag: 
     visionDuringNormalState:
-      coneAngle: 77
-      sightRange: 8.33
+      coneAngle: 86
+      sightRange: 8.89
     visionDuringAlertState:
-      coneAngle: 110
-      sightRange: 11.36
+      coneAngle: 99
+      sightRange: 10.05
     visionDuringAttackState:
       coneAngle: 111
       sightRange: 11.52
@@ -1494,9 +1528,9 @@ MonoBehaviour:
     showAlertVision: 1
     showAttackVision: 1
     showMaxSightLevel: 1
-  checkEnemyContact: 0
-  enemyContactRadius: 1.2
-  showEnemyContactRadius: 0
+  checkEnemyContact: 1
+  enemyContactRadius: 2
+  showEnemyContactRadius: 1
   friendly: 0
   distanceCull: 0
   ignoreUnreachableEnemy: 1

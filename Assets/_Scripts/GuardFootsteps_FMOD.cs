@@ -37,6 +37,14 @@ public class GuardFootsteps_FMOD : MonoBehaviour
         Bored.start();
         Bored.release();
     }
+
+     public void SurprisedEvent(string path)
+    {
+        FMOD.Studio.EventInstance Surprised = FMODUnity.RuntimeManager.CreateInstance(path);
+        Surprised.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        Surprised.start();
+        Surprised.release();
+    }
 }
 
 
