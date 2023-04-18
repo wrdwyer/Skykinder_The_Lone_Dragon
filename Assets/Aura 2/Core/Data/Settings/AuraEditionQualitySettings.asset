@@ -29,7 +29,7 @@ MonoBehaviour:
   enablePointLights: 1
   enablePointLightsShadows: 1
   enableLightsCookies: 1
-  enableDithering: 1
+  enableDithering: 0
   texture3DFiltering: 0
   EXPERIMENTAL_enableDenoisingFilter: 0
   EXPERIMENTAL_denoisingFilterRange: 2

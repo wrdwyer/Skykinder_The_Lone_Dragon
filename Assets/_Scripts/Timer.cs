@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
                 }
                 else
                 {
-                    timer= 50f;
+                    timer= 0f;
                     Debug.DebugBreak();
                     Debug.Log("Timer Set to "+_timer);
                 }
@@ -49,7 +49,7 @@ public class Timer : MonoBehaviour
             isTimerRunning = false;
             timer += Time.deltaTime;
             timerData = Mathf.Round(timer * 100) /100f;
-            //timerFSM.Value = Mathf.Round(timer * 100) /100f;
+            timerFSM.Value = Mathf.Round(timer * 100) /100f;
             fastestTime = fastestTimeFSM.Value;
             minutes = Mathf.FloorToInt(timer /60);
             seconds = Mathf.FloorToInt(timer % 60);
@@ -105,7 +105,7 @@ public class Timer : MonoBehaviour
 
     public void DisplayTime (float timeToDisplay)
     {
-        minutes = Mathf.FloorToInt(timer /60);
+        minutes = Mathf.FloorToInt(timer / 60);
         seconds = Mathf.FloorToInt(timer % 60);
         timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
