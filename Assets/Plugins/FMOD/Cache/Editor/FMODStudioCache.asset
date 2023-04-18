@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/SkyKender/Master
-  lastModified: 638169290859152739
+  lastModified: 638174534962721372
   FileSizes:
   - Name: Desktop
-    Value: 3135840
+    Value: 5960928
   Exists: 1
 --- !u!114 &-7677622401519968814
 MonoBehaviour:
@@ -466,12 +466,16 @@ MonoBehaviour:
   - {fileID: -6578165336437601410}
   - {fileID: 2136068323713517465}
   - {fileID: -8562976216996166756}
+  - {fileID: 8482217055385521285}
+  - {fileID: 3558823985922555479}
+  - {fileID: 7444242128202588204}
+  - {fileID: 1181819763690490729}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8222943988658061890}
   StringsBanks:
   - {fileID: 6568465905494243244}
-  cacheTime: 638169290859202773
+  cacheTime: 638174534962761335
   cacheVersion: 131601
 --- !u!114 &345390071772631162
 MonoBehaviour:
@@ -554,6 +558,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1672
+--- !u!114 &1181819763690490729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Music
+  Guid:
+    Data1: 279139575
+    Data2: 1232183046
+    Data3: -1907144564
+    Data4: 13948983
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 129392
 --- !u!114 &1357367266699988459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +666,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 19000
+--- !u!114 &3558823985922555479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Hatch
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Hatch
+  Guid:
+    Data1: -2091310001
+    Data2: 1199433062
+    Data3: -284315247
+    Data4: 739535520
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 61562
 --- !u!114 &4454878938968940761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,10 +762,10 @@ MonoBehaviour:
   Path: ../FMOD/SkyKenderFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/SkyKender/Master.strings
-  lastModified: 638169290859202773
+  lastModified: 638174534962761335
   FileSizes:
   - Name: Desktop
-    Value: 2048
+    Value: 2218
   Exists: 1
 --- !u!114 &6929967613153769163
 MonoBehaviour:
@@ -763,6 +821,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 321
+--- !u!114 &7444242128202588204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Escape
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Escape
+  Guid:
+    Data1: 1614391937
+    Data2: 1330119891
+    Data3: -123760231
+    Data4: 1092733571
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 42799
 --- !u!114 &7531819523822045867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,3 +929,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1985
+--- !u!114 &8482217055385521285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Dragon Freed
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Dragon Freed
+  Guid:
+    Data1: 935038467
+    Data2: 1163307339
+    Data3: 756170174
+    Data4: -22933908
+  Banks:
+  - {fileID: -8222943988658061890}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15577
